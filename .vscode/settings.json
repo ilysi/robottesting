@@ -1,0 +1,7 @@
+{
+    "robot.pythonpath": [
+        "./resources/keywords",
+        "./resources/variables"
+    ],
+    "robot.libraries.libdoc": "python -m robot.libdoc"
+}

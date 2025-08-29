@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.5 on win32)" generated="2025-08-29T16:51:22.724653" rpa="false" schemaversion="5">
+<suite id="s1" name="Robottesting" source="C:\Users\elias.grinberg\source\robottesting">
+<suite id="s1-s1" name="Tests" source="C:\Users\elias.grinberg\source\robottesting\tests">
+<suite id="s1-s1-s1" name="Api Tests" source="C:\Users\elias.grinberg\source\robottesting\tests\api_tests">
+<suite id="s1-s1-s1-s1" name="Test Api" source="C:\Users\elias.grinberg\source\robottesting\tests\api_tests\test_api.robot">
+<kw name="Setup" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:23.234389" level="INFO">Creating Session using : alias=restfulapi, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>restfulapi</arg>
+<arg>https://api.restful-api.dev</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-29T16:51:23.233393" elapsed="0.000996"/>
+</kw>
+<kw name="Set Log Level" owner="BuiltIn">
+<msg time="2025-08-29T16:51:23.235391" level="DEBUG">Log level changed from INFO to TRACE.</msg>
+<msg time="2025-08-29T16:51:23.236391" level="TRACE">Return: 'INFO'</msg>
+<arg>TRACE</arg>
+<doc>Sets the log threshold to the specified level.</doc>
+<status status="PASS" start="2025-08-29T16:51:23.235391" elapsed="0.001000"/>
+</kw>
+<msg time="2025-08-29T16:51:23.236391" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-08-29T16:51:23.232389" elapsed="0.005001"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="Get_List_Of_All_Objects" line="23">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:23.243390" level="TRACE">Arguments: [ 'restfulapi' | '/objects' ]</msg>
+<msg time="2025-08-29T16:51:23.248390" level="DEBUG">Starting new HTTPS connection (1): api.restful-api.dev:443</msg>
+<msg time="2025-08-29T16:51:25.131459" level="DEBUG">https://api.restful-api.dev:443 "GET /objects HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:25.132459" level="INFO">GET Request : url=https://api.restful-api.dev/objects 
+ path_url=/objects 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:25.132459" level="INFO">GET Response : url=https://api.restful-api.dev/objects 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=yNvFl584rrED9I9BvZUJNuStB8VUOw85YNpfQQ8yQD0bUp5qCJG7xugLjJ5a64AblgtF5Z5kMc2%2BP%2BqNM4jdLbM0eOmlRMCVlw0K0x8EilStOB8%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddc74d945d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":"1","name":"Google Pixel 6 Pro","data":{"color":"Cloudy White","capacity":"128 GB"}},{"id":"2","name":"Apple iPhone 12 Mini, 256GB, Blue","data":null},{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"4","name":"Apple iPhone 11, 64GB","data":{"price":389.99,"color":"Purple"}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"6","name":"Apple AirPods","data":{"generation":"3rd","price":120}},{"id":"7","name":"Apple MacBook Pro 16","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}},{"id":"8","name":"Apple Watch Series 8","data":{"Strap Colour":"Elderberry","Case Size":"41mm"}},{"id":"9","name":"Beats Studio3 Wireless","data":{"Color":"Red","Description":"High-performance wireless noise cancelling headphones"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}},{"id":"11","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"254 GB","Screen size":7.9}},{"id":"12","name":"Apple iPad Air","data":{"Generation":"4th","Price":"419.99","Capacity":"64 GB"}},{"id":"13","name":"Apple iPad Air","data":{"Generation":"4th","Price":"519.99","Capacity":"256 GB"}}] 
+ </msg>
+<msg time="2025-08-29T16:51:25.133460" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:25.133460" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:25.134459" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:23.243390" elapsed="1.891069"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.135463" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:25.136460" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.134459" elapsed="0.002001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:25.137462" level="TRACE">Arguments: [ [{'id': '1',
+  'name': 'Google Pixel 6 Pro',
+  'data': {'color': 'Cloudy White', 'capacity': '128 GB'}},
+ {'id': '2', 'name': 'Apple iPhone 12 Mini, 256GB, Blue', 'data': None},
+ {'id': '3',
+  'name': 'Apple iPhone 12 Pro Max',
+  'data': {'color': 'Cloudy White', 'capacity GB': 512}},
+ {'id': '4',
+  'name': 'Apple iPhone 11, 64GB',
+  'data': {'price': 389.99, 'color': 'Purple'}},
+ {'id': '5',
+  'name': 'Samsung Galaxy Z Fold2',
+  'data': {'price': 689.99, 'color': 'Brown'}},
+ {'id': '6',
+  'name': 'Apple AirPods',
+  'data': {'generation': '3rd', 'price': 120}},
+ {'id': '7',
+  'name': 'Apple MacBook Pro 16',
+  'data': {'year': 2019,
+           'price': 1849.99,
+           'CPU model': 'Intel Core i9',
+           'Hard disk size': '1 TB'}},
+ {'id': '8',
+  'name': 'Apple Watch Series 8',
+  'data': {'Strap Colour': 'Elderberry', 'Case Size': '41mm'}},
+ {'id': '9',
+  'name': 'Beats Studio3 Wireless',
+  'data': {'Color': 'Red',
+           'Description': 'High-performance wireless noise cancelling headphones'}},
+ {'id': '10',
+  'name': 'Apple iPad Mini 5th Gen',
+  'data': {'Capacity': '64 GB', 'Screen size': 7.9}},
+ {'id': '11',
+  'name': 'Apple iPad Mini 5th Gen',
+  'data': {'Capacity': '254 GB', 'Screen size': 7.9}},
+ {'id': '12',
+  'name': 'Apple iPad Air',
+  'data': {'Generation': '4th', 'Price': '419.99', 'Capacity': '64 GB'}},
+ {'id': '13',
+  'name': 'Apple iPad Air',
+  'data': {'Generation': '4th', 'Price': '519.99', 'Capacity': '256 GB'}}] ]</msg>
+<msg time="2025-08-29T16:51:25.138459" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.137462" elapsed="0.001996"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:23.237390" elapsed="1.902068"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="List_of_objects_by_ids" line="28">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.150459" level="TRACE">Arguments: [ 'restfulapi' | '/objects' | params='id=3&amp;id=5&amp;id=10' ]</msg>
+<msg time="2025-08-29T16:51:25.505044" level="DEBUG">https://api.restful-api.dev:443 "GET /objects?id=3&amp;id=5&amp;id=10 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:25.506044" level="INFO">GET Request : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10 
+ path_url=/objects?id=3&amp;id=5&amp;id=10 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:25.506044" level="INFO">GET Response : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:25 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=zD7%2B7uqg5VImtqEmdTw4sZfQQ5tQfrd0TsymnqB630eV6FgDqOeSZq7XcRuLEfc5bYJxvEBOl2gAl8FWcyx%2FWraN91n7oyYWIWlc6eYov0gp6t0%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddc95f065d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}}] 
+ </msg>
+<msg time="2025-08-29T16:51:25.506044" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:25.507047" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:25.507047" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects</arg>
+<arg>params=id=3&amp;id=5&amp;id=10</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.150459" elapsed="0.357589"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.509048" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:25.509048" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.508048" elapsed="0.002000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:25.511048" level="TRACE">Arguments: [ [{'id': '3',
+  'name': 'Apple iPhone 12 Pro Max',
+  'data': {'color': 'Cloudy White', 'capacity GB': 512}},
+ {'id': '5',
+  'name': 'Samsung Galaxy Z Fold2',
+  'data': {'price': 689.99, 'color': 'Brown'}},
+ {'id': '10',
+  'name': 'Apple iPad Mini 5th Gen',
+  'data': {'Capacity': '64 GB', 'Screen size': 7.9}}] ]</msg>
+<msg time="2025-08-29T16:51:25.512045" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.510048" elapsed="0.001997"/>
+</kw>
+<kw name="Request Should Be Successful" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.514048" level="TRACE">Arguments: [ response=&lt;Response [200]&gt; ]</msg>
+<msg time="2025-08-29T16:51:25.515076" level="TRACE">Return: None</msg>
+<arg>response=${response}</arg>
+<doc>Fails if response status code is a client or server error (4xx, 5xx).</doc>
+<status status="PASS" start="2025-08-29T16:51:25.513050" elapsed="0.002026"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:25.145461" elapsed="0.370625"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Single_object" line="34">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.542599" level="TRACE">Arguments: [ 'restfulapi' | '/objects/3' ]</msg>
+<msg time="2025-08-29T16:51:25.871227" level="DEBUG">https://api.restful-api.dev:443 "GET /objects/3 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:25.871227" level="INFO">GET Request : url=https://api.restful-api.dev/objects/3 
+ path_url=/objects/3 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:25.872227" level="INFO">GET Response : url=https://api.restful-api.dev/objects/3 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:25 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=sIWYXOth3hauJg3V5197mZMhxFMjT6YtsxfJe7lQ16nYi4wmAtS00qPy%2BwvH6%2BPtuumQ0YaHo5AmMRyvVG94JOm5GXjUxmUGc74zWtbIhgdr7cA%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddcbc8d25d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}} 
+ </msg>
+<msg time="2025-08-29T16:51:25.872227" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:25.872227" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:25.873229" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.542599" elapsed="0.330630"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.874230" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:25.874230" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.873229" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:25.876228" level="TRACE">Arguments: [ {'id': '3',
+ 'name': 'Apple iPhone 12 Pro Max',
+ 'data': {'color': 'Cloudy White', 'capacity GB': 512}} ]</msg>
+<msg time="2025-08-29T16:51:25.876228" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.875228" elapsed="0.001000"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:25.877229" level="TRACE">Arguments: [ {'id': '3',
+ 'name': 'Apple iPhone 12 Pro Max',
+ 'data': {'color': 'Cloudy White', 'capacity GB': 512}} | key='id' | value='3' ]</msg>
+<msg time="2025-08-29T16:51:25.878228" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=id</arg>
+<arg>value=3</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.876228" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:25.537600" elapsed="0.340628"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Add_object" line="40">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:25.889228" level="TRACE">Arguments: [ 'C:/Users/elias.grinberg/source/robottesting/resources/payload/addObject_2.json' ]</msg>
+<msg time="2025-08-29T16:51:25.889228" level="DEBUG">Check if file exists</msg>
+<msg time="2025-08-29T16:51:25.891231" level="TRACE">Return: {'name': 'Test post operation',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test'}}</msg>
+<msg time="2025-08-29T16:51:25.891231" level="INFO">${body} = {'name': 'Test post operation', 'data': {'year': 2222, 'price': 2545.99, 'CPU model': 'Intel Core i9 Test', 'Hard disk size': '1 TB Test'}}</msg>
+<var>${body}</var>
+<arg>${BODY_FILE}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.889228" elapsed="0.002003"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:25.892231" level="TRACE">Arguments: [ 'restfulapi' | '/objects' | json={'name': 'Test post operation',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test'}} ]</msg>
+<msg time="2025-08-29T16:51:26.259305" level="DEBUG">https://api.restful-api.dev:443 "POST /objects HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:26.260305" level="INFO">POST Request : url=https://api.restful-api.dev/objects 
+ path_url=/objects 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '139', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Test post operation", "data": {"year": 2222, "price": 2545.99, "CPU model": "Intel Core i9 Test", "Hard disk size": "1 TB Test"}}' 
+ </msg>
+<msg time="2025-08-29T16:51:26.260305" level="INFO">POST Response : url=https://api.restful-api.dev/objects 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:26 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=HoLd9xSkby8mRRsK2WT4TkrfRr8JUWQAO0E2lzt9icQN%2F2689jm%2Bt6SVBlr8TgCH0KDHFQgbjwtTUKYzZvdYYnIB2o1WeGHiF0iw4mDd8Uu8%2Bv8%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddce0a515d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e0198f64fdd836aa0","name":"Test post operation","createdAt":"2025-08-29T14:51:25.955+00:00","data":{"year":2222,"price":2545.99,"CPU model":"Intel Core i9 Test","Hard disk size":"1 TB Test"}} 
+ </msg>
+<msg time="2025-08-29T16:51:26.260305" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:26.261307" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:26.262309" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:25.892231" elapsed="0.370078"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.264307" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:26.264307" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.263308" elapsed="0.000999"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:26.265307" level="TRACE">Arguments: [ {'id': 'ff8081819782e69e0198f64fdd836aa0',
+ 'name': 'Test post operation',
+ 'createdAt': '2025-08-29T14:51:25.955+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test'}} ]</msg>
+<msg time="2025-08-29T16:51:26.266309" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.265307" elapsed="0.001002"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-08-29T16:51:26.268306" level="TRACE">Arguments: [ 'Test post operation' | 'Test post operation' ]</msg>
+<msg time="2025-08-29T16:51:26.268306" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-08-29T16:51:26.268306" level="TRACE">Return: None</msg>
+<arg>${response.json()}[name]</arg>
+<arg>Test post operation</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.267309" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:25.885228" elapsed="0.384078"/>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Single_added_object" line="48">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.277304" level="TRACE">Arguments: [ 'restfulapi' | '/objects/ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:26.586171" level="DEBUG">https://api.restful-api.dev:443 "GET /objects/ff80818196f2a23f019773b36c4411e5 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:26.586171" level="INFO">GET Request : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ path_url=/objects/ff80818196f2a23f019773b36c4411e5 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:26.586171" level="INFO">GET Response : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:26 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=k%2B9A9woSbedgUs1Secj%2BYDqfUxA0wtfymdZ5h7UZTnPWPvANKESFSI2cxADjwiJQm2C%2BsKcC4DNwe2voGDskJveBqd8oDr278xS6ciYFRwAwxdI%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddd05bfd5d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff80818196f2a23f019773b36c4411e5","name":"Test post operation2 (PAtch update test operation)","data":{"year":2222,"price":2545.99,"CPU model":"Intel Core i9 Test","Hard disk size":"1 TB Test","test":"put operation update data"}} 
+ </msg>
+<msg time="2025-08-29T16:51:26.587172" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:26.587172" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:26.587172" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/ff80818196f2a23f019773b36c4411e5</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.277304" elapsed="0.309868"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.588173" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:26.589174" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.588173" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:26.590174" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2 (PAtch update test operation)',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} ]</msg>
+<msg time="2025-08-29T16:51:26.590174" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.589174" elapsed="0.002000"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:26.592174" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2 (PAtch update test operation)',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | key='id' | value='ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:26.592174" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=id</arg>
+<arg>value=ff80818196f2a23f019773b36c4411e5</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.591174" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:26.273306" elapsed="0.319867"/>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Update_object" line="54">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:26.607171" level="TRACE">Arguments: [ 'C:/Users/elias.grinberg/source/robottesting/resources/payload/addObject_2_update.json' ]</msg>
+<msg time="2025-08-29T16:51:26.607171" level="DEBUG">Check if file exists</msg>
+<msg time="2025-08-29T16:51:26.608172" level="TRACE">Return: {'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}}</msg>
+<msg time="2025-08-29T16:51:26.609172" level="INFO">${body} = {'name': 'Test post operation2', 'data': {'year': 2222, 'price': 2545.99, 'CPU model': 'Intel Core i9 Test', 'Hard disk size': '1 TB Test', 'test': 'put operation update data'}}</msg>
+<var>${body}</var>
+<arg>${BODY_FILE_2}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.606173" elapsed="0.002999"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.610172" level="TRACE">Arguments: [ 'restfulapi' | '/objects/ff80818196f2a23f019773b36c4411e5' | json={'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} ]</msg>
+<msg time="2025-08-29T16:51:26.930223" level="DEBUG">https://api.restful-api.dev:443 "PUT /objects/ff80818196f2a23f019773b36c4411e5 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:26.931229" level="INFO">PUT Request : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ path_url=/objects/ff80818196f2a23f019773b36c4411e5 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '177', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Test post operation2", "data": {"year": 2222, "price": 2545.99, "CPU model": "Intel Core i9 Test", "Hard disk size": "1 TB Test", "test": "put operation update data"}}' 
+ </msg>
+<msg time="2025-08-29T16:51:26.931229" level="INFO">PUT Response : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:26 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=h4vtHMPa6s%2BbG1U1hWnMXcMVJTCwBrxUy0Hzb3SYPgmLZLwMLDg%2BSoU7zNqN2UpmxdlXRyRt1irqL9Nvl%2F1tpuGVDd3mLVBbekXSXTbk2w3sylw%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddd28d565d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff80818196f2a23f019773b36c4411e5","name":"Test post operation2","updatedAt":"2025-08-29T14:51:26.639+00:00","data":{"year":2222,"price":2545.99,"CPU model":"Intel Core i9 Test","Hard disk size":"1 TB Test","test":"put operation update data"}} 
+ </msg>
+<msg time="2025-08-29T16:51:26.931229" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:26.931229" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:26.932232" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/ff80818196f2a23f019773b36c4411e5</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.609172" elapsed="0.323060"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.933230" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:26.933230" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.932232" elapsed="0.000998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:26.934228" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'updatedAt': '2025-08-29T14:51:26.639+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} ]</msg>
+<msg time="2025-08-29T16:51:26.935231" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.934228" elapsed="0.001003"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:26.936229" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'updatedAt': '2025-08-29T14:51:26.639+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | key='id' | value='ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:26.936229" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=id</arg>
+<arg>value=ff80818196f2a23f019773b36c4411e5</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.935231" elapsed="0.000998"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:26.938230" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'updatedAt': '2025-08-29T14:51:26.639+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | key='name' | value='Test post operation2' ]</msg>
+<msg time="2025-08-29T16:51:26.938230" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=name</arg>
+<arg>value=Test post operation2</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.937228" elapsed="0.001002"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:26.603173" elapsed="0.336058"/>
+</test>
+<test id="s1-s1-s1-s1-t7" name="Single_added_object_2" line="63">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:26.951230" level="TRACE">Arguments: [ 'restfulapi' | '/objects/ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:27.267767" level="DEBUG">https://api.restful-api.dev:443 "GET /objects/ff80818196f2a23f019773b36c4411e5 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:27.268766" level="INFO">GET Request : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ path_url=/objects/ff80818196f2a23f019773b36c4411e5 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:27.268766" level="INFO">GET Response : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:27 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=DDAqUkH6J3PN3K%2Fk8KeUFkP2kaZ0LkCPO7fjGKWxMad7mUVisztRHSSmcKt5MOl1%2FgA02cIvzVFWaNXh0ow%2Blw8neW4zfYzsgnmJ%2F0tVFlHJoTg%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddd49f1a5d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff80818196f2a23f019773b36c4411e5","name":"Test post operation2","data":{"year":2222,"price":2545.99,"CPU model":"Intel Core i9 Test","Hard disk size":"1 TB Test","test":"put operation update data"}} 
+ </msg>
+<msg time="2025-08-29T16:51:27.268766" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:27.269771" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:27.269771" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/ff80818196f2a23f019773b36c4411e5</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:26.951230" elapsed="0.318541"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:27.270769" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:27.270769" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.270769" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.272768" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} ]</msg>
+<msg time="2025-08-29T16:51:27.272768" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.271770" elapsed="0.000998"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:27.273770" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | '$.id' ]</msg>
+<msg time="2025-08-29T16:51:27.294768" level="TRACE">Return: ['ff80818196f2a23f019773b36c4411e5']</msg>
+<msg time="2025-08-29T16:51:27.295789" level="INFO">${actual_value2} = ['ff80818196f2a23f019773b36c4411e5']</msg>
+<var>${actual_value2}</var>
+<arg>${response.json()}</arg>
+<arg>$.id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-29T16:51:27.272768" elapsed="0.023021"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.296768" level="TRACE">Arguments: [ 'ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:27.296768" level="TRACE">Return: 'ff80818196f2a23f019773b36c4411e5'</msg>
+<msg time="2025-08-29T16:51:27.297769" level="INFO">${actual_value2} = ff80818196f2a23f019773b36c4411e5</msg>
+<var>${actual_value2}</var>
+<arg>${actual_value2}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.296768" elapsed="0.001001"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.297769" level="TRACE">Arguments: [ 'ff80818196f2a23f019773b36c4411e5' | 'ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:27.298770" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-08-29T16:51:27.298770" level="TRACE">Return: None</msg>
+<arg>${actual_value2}</arg>
+<arg>ff80818196f2a23f019773b36c4411e5</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.297769" elapsed="0.001001"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:27.299769" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | '$.name' ]</msg>
+<msg time="2025-08-29T16:51:27.320772" level="TRACE">Return: ['Test post operation2']</msg>
+<msg time="2025-08-29T16:51:27.320772" level="INFO">${actual_value2} = ['Test post operation2']</msg>
+<var>${actual_value2}</var>
+<arg>${response.json()}</arg>
+<arg>$.name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-29T16:51:27.298770" elapsed="0.022002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.322773" level="TRACE">Arguments: [ 'Test post operation2' ]</msg>
+<msg time="2025-08-29T16:51:27.322773" level="TRACE">Return: 'Test post operation2'</msg>
+<msg time="2025-08-29T16:51:27.322773" level="INFO">${actual_value2} = Test post operation2</msg>
+<var>${actual_value2}</var>
+<arg>${actual_value2}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.321772" elapsed="0.001001"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.323776" level="TRACE">Arguments: [ 'Test post operation2' | 'Test post operation2' ]</msg>
+<msg time="2025-08-29T16:51:27.324774" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-08-29T16:51:27.324774" level="TRACE">Return: None</msg>
+<arg>${actual_value2}</arg>
+<arg>Test post operation2</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.323776" elapsed="0.000998"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:27.325775" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | '$.data.test' ]</msg>
+<msg time="2025-08-29T16:51:27.344284" level="TRACE">Return: ['put operation update data']</msg>
+<msg time="2025-08-29T16:51:27.344284" level="INFO">${actual_value2} = ['put operation update data']</msg>
+<var>${actual_value2}</var>
+<arg>${response.json()}</arg>
+<arg>$.data.test</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-29T16:51:27.325775" elapsed="0.019513"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.346293" level="TRACE">Arguments: [ 'put operation update data' ]</msg>
+<msg time="2025-08-29T16:51:27.347290" level="TRACE">Return: 'put operation update data'</msg>
+<msg time="2025-08-29T16:51:27.347290" level="INFO">${actual_value2} = put operation update data</msg>
+<var>${actual_value2}</var>
+<arg>${actual_value2}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.345288" elapsed="0.002002"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.348288" level="TRACE">Arguments: [ 'put operation update data' | 'put operation update data' ]</msg>
+<msg time="2025-08-29T16:51:27.348288" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-08-29T16:51:27.349287" level="TRACE">Return: None</msg>
+<arg>${actual_value2}</arg>
+<arg>put operation update data</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.348288" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:26.942233" elapsed="0.407054"/>
+</test>
+<test id="s1-s1-s1-s1-t8" name="Partially_update_object" line="81">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-08-29T16:51:27.356286" level="TRACE">Arguments: [ 'C:/Users/elias.grinberg/source/robottesting/resources/payload/addObject_2_patch.json' ]</msg>
+<msg time="2025-08-29T16:51:27.357285" level="DEBUG">Check if file exists</msg>
+<msg time="2025-08-29T16:51:27.357285" level="TRACE">Return: {'name': 'Test post operation2 (PAtch update test operation)'}</msg>
+<msg time="2025-08-29T16:51:27.358288" level="INFO">${body} = {'name': 'Test post operation2 (PAtch update test operation)'}</msg>
+<var>${body}</var>
+<arg>${BODY_FILE_PATCH}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.356286" elapsed="0.002002"/>
+</kw>
+<kw name="PATCH On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:27.359286" level="TRACE">Arguments: [ 'restfulapi' | '/objects/ff80818196f2a23f019773b36c4411e5' | json={'name': 'Test post operation2 (PAtch update test operation)'} ]</msg>
+<msg time="2025-08-29T16:51:27.636919" level="DEBUG">https://api.restful-api.dev:443 "PATCH /objects/ff80818196f2a23f019773b36c4411e5 HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:27.637919" level="INFO">PATCH Request : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ path_url=/objects/ff80818196f2a23f019773b36c4411e5 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '62', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Test post operation2 (PAtch update test operation)"}' 
+ </msg>
+<msg time="2025-08-29T16:51:27.637919" level="INFO">PATCH Response : url=https://api.restful-api.dev/objects/ff80818196f2a23f019773b36c4411e5 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:27 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=PvXLnxe3pyKQAKYaKC5hwOfjsIN7iVZWx%2B8u7sSrnkjrwNElwLutCQQmUye%2Fkws4ckAf98f6vFtczmS4Bo%2F7wjCxYvTZuPjIlr5NG6UtONlzQ%2Fs%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddd728af5d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff80818196f2a23f019773b36c4411e5","name":"Test post operation2 (PAtch update test operation)","updatedAt":"2025-08-29T14:51:27.347+00:00","data":{"year":2222,"price":2545.99,"CPU model":"Intel Core i9 Test","Hard disk size":"1 TB Test","test":"put operation update data"}} 
+ </msg>
+<msg time="2025-08-29T16:51:27.638920" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:27.638920" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:27.639923" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/ff80818196f2a23f019773b36c4411e5</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.358288" elapsed="0.281635"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:27.640920" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:27.641921" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.640920" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-08-29T16:51:27.642920" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2 (PAtch update test operation)',
+ 'updatedAt': '2025-08-29T14:51:27.347+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} ]</msg>
+<msg time="2025-08-29T16:51:27.643921" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.642920" elapsed="0.002002"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:27.646921" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2 (PAtch update test operation)',
+ 'updatedAt': '2025-08-29T14:51:27.347+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | key='id' | value='ff80818196f2a23f019773b36c4411e5' ]</msg>
+<msg time="2025-08-29T16:51:27.647920" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=id</arg>
+<arg>value=ff80818196f2a23f019773b36c4411e5</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.645928" elapsed="0.001992"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-08-29T16:51:27.648920" level="TRACE">Arguments: [ {'id': 'ff80818196f2a23f019773b36c4411e5',
+ 'name': 'Test post operation2 (PAtch update test operation)',
+ 'updatedAt': '2025-08-29T14:51:27.347+00:00',
+ 'data': {'year': 2222,
+          'price': 2545.99,
+          'CPU model': 'Intel Core i9 Test',
+          'Hard disk size': '1 TB Test',
+          'test': 'put operation update data'}} | key='name' | value='Test post operation2 (PAtch update test operation)' ]</msg>
+<msg time="2025-08-29T16:51:27.649918" level="TRACE">Return: None</msg>
+<arg>${response.json()}</arg>
+<arg>key=name</arg>
+<arg>value=Test post operation2 (PAtch update test operation)</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.648920" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:27.352288" elapsed="0.298631"/>
+</test>
+<test id="s1-s1-s1-s1-t9" name="Delete_object" line="90">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:27.657919" level="TRACE">Arguments: [ 'restfulapi' | '/objects/' ]</msg>
+<msg time="2025-08-29T16:51:27.928981" level="DEBUG">https://api.restful-api.dev:443 "DELETE /objects/ HTTP/1.1" 200 None</msg>
+<msg time="2025-08-29T16:51:27.928981" level="INFO">DELETE Request : url=https://api.restful-api.dev/objects/ 
+ path_url=/objects/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-08-29T16:51:27.928981" level="INFO">DELETE Response : url=https://api.restful-api.dev/objects/ 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 29 Aug 2025 14:51:27 GMT', 'Content-Type': 'text/plain;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=woSCy1GDXbBjNBAtrgvJfipNkSE2s933rMEaL%2FJSCtey840vPadnFxfoMuBp4Vr2f8SaIrl1Zf%2BdAJQxN0MYK79SKmAOFRqUopjat%2BpSELwDUzQ%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '976cddd909e45d3d-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=Hello world from Spring Boot 
+ </msg>
+<msg time="2025-08-29T16:51:27.928981" level="INFO">C:\Users\elias.grinberg\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-29T16:51:27.930486" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-08-29T16:51:27.930486" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>restfulapi</arg>
+<arg>/objects/${id_wf}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.657919" elapsed="0.272567"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-08-29T16:51:27.931494" level="TRACE">Arguments: [ expected_status='200' ]</msg>
+<msg time="2025-08-29T16:51:27.932493" level="TRACE">Return: None</msg>
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-29T16:51:27.931494" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-08-29T16:51:27.653921" elapsed="0.278572"/>
+</test>
+<status status="PASS" start="2025-08-29T16:51:22.835471" elapsed="5.100022"/>
+</suite>
+<status status="PASS" start="2025-08-29T16:51:22.827956" elapsed="5.110537"/>
+</suite>
+<status status="PASS" start="2025-08-29T16:51:22.820960" elapsed="5.121533"/>
+</suite>
+<status status="PASS" start="2025-08-29T16:51:22.753615" elapsed="5.193879"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robottesting" id="s1" pass="9" fail="0" skip="0">Robottesting</stat>
+<stat name="Tests" id="s1-s1" pass="9" fail="0" skip="0">Robottesting.Tests</stat>
+<stat name="Api Tests" id="s1-s1-s1" pass="9" fail="0" skip="0">Robottesting.Tests.Api Tests</stat>
+<stat name="Test Api" id="s1-s1-s1-s1" pass="9" fail="0" skip="0">Robottesting.Tests.Api Tests.Test Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

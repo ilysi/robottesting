@@ -1,0 +1,10 @@
+{
+   "name": "Test post operation2",
+   "data": {
+      "year": 2222,
+      "price": 2545.99,
+      "CPU model": "Intel Core i9 Test",
+      "Hard disk size": "1 TB Test",
+      "test": "put operation update data"
+   }
+}
