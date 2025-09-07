@@ -1,14 +1,22 @@
-[tool.poetry]
-name = "robotframework"
+[project]
+name = "robottesting"
 version = "0.1.0"
 description = ""
-authors = ["elias.grinberg <elias.grinberg@gmail.com>"]
+authors = [
+    {name = "Elias Grinberg", email = "illya.grinberg@gmail.com"}
+]
 readme = "README.md"
+requires-python = "^3.11"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-
+[tool.poetry]
+package-mode = false
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+robotframework = "^7.3.2"
+robotframework-browser = "^19.7.2"
+robotframework-jsonlibrary = "^0.5"
+robotframework-requests = "^0.9.7"
