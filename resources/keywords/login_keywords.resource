@@ -1,7 +1,7 @@
 *** Settings ***
-Library    Browser
-
+Library     Browser
 Resource    ../variables/common_variables.resource
+
 
 *** Keywords ***
 I am on the login page
@@ -22,7 +22,10 @@ I should see the homepage
     Get Text    //div[@class='app_logo']    contains    Swag Labs
 
 I should see an error message
-    Get Text    //h3[@data-test='error']    ==    Epic sadface: Username and password do not match any user in this service
+    Get Text
+    ...    //h3[@data-test='error']
+    ...    ==
+    ...    Epic sadface: Username and password do not match any user in this service
 
 I should see a locked out message
     Get Text    //h3[@data-test='error']    ==    Epic sadface: Sorry, this user has been locked out.

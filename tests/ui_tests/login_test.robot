@@ -1,9 +1,9 @@
 *** Settings ***
-Library    Browser
+Library         Browser
+Resource        ../../resources/keywords/login_keywords.resource
 
-Resource    ../../resources/keywords/login_keywords.resource
+Test Setup      New Browser    browser=chromium    headless=False
 
-Test Setup    New Browser    browser=chromium    headless=False
 
 *** Test Cases ***
 Open Login Page

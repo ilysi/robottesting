@@ -1,37 +1,37 @@
 *** Settings ***
-Library    Browser
-
+Library     Browser
 Resource    ../variables/common_variables.resource
 Resource    ../keywords/login_keywords.resource
 
+
 *** Keywords ***
 Initialize Browser And Login
+    [Documentation]    Initializes the browser and logs in with standard user credentials.
     Set Log Level    level=TRACE
     # New Browser    browser=chromium    headless=False
     Open Browser    ${None}    chromium    False
-    And I am on the login page
-    And I login with username "standard_user" and password "secret_sauce"
+    And I Am On The Login Page
+    And I Login With Username "standard_user" And Password "secret_sauce"
     Wait For Elements State    css=.shopping_cart_link    stable
 
-I am on the product page
+I Am On The Product Page
     # Go To    ${baseUrl}/inventory.html
     Get Url    ==    ${baseUrl}/inventory.html
-    
 
-# the title should be Swag Labs
-#     Get Title    ==    Swag Labs
+# The Title Should Be Swag Labs
+#    Get Title    ==    Swag Labs
 
-the product list should be visible
+The Product List Should Be Visible
     Wait For Elements State    css=.inventory_list    visible
 
-I add the backpack to the cart
+I Add The Backpack To The Cart
     Click    id=add-to-cart-sauce-labs-backpack
 
-I add the bike light to the cart
+I Add The Bike Light To The Cart
     Click    id=add-to-cart-sauce-labs-bike-light
 
-I add the bolt t-shirt to the cart
+I Add The Bolt T-Shirt To The Cart
     Click    id=add-to-cart-sauce-labs-bolt-t-shirt
 
-the item should be in the cart
+The Item Should Be In The Cart
     Wait For Elements State    css=.shopping_cart_badge    visible
