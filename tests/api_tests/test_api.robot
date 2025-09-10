@@ -8,9 +8,9 @@ Suite Setup     Setup
 
 
 *** Variables ***
-${BODY_FILE}=           /Users/eliasg/Projects/work/robottesting/resources/payload/addObject_2.json
-${BODY_FILE_2}=         /Users/eliasg/Projects/work/robottesting/resources/payload/addObject_2_update.json
-${BODY_FILE_PATCH}=     /Users/eliasg/Projects/work/robottesting/resources/payload/addObject_2_patch.json
+${BODY_FILE}=           ${CURDIR}/../../resources/payload/addObject_2.json
+${BODY_FILE_2}=         ${CURDIR}/../../resources/payload/addObject_2_update.json
+${BODY_FILE_PATCH}=     ${CURDIR}/../../resources/payload/addObject_2_patch.json
 ${id}=                  3
 ${id_wf}=               ${EMPTY}
 
