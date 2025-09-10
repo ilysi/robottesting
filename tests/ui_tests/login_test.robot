@@ -2,7 +2,7 @@
 Library         Browser
 Resource        ../../resources/keywords/login_keywords.resource
 
-Test Setup      New Browser    browser=chromium    headless=False
+Test Setup      New Browser    browser=chromium    headless=True
 
 
 *** Test Cases ***

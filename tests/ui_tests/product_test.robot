@@ -8,7 +8,7 @@ Test Setup      Initialize Browser And Login
 *** Test Cases ***
 Open Product Page
     Given I Am On The Product Page
-    # Then The Title Should Be Swag Labs
+    Then The Title Should Be Swag Labs
     Then The Product List Should Be Visible
 
 Add Backpack To Cart

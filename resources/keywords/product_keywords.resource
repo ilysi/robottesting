@@ -8,8 +8,10 @@ Resource    ../keywords/login_keywords.resource
 Initialize Browser And Login
     [Documentation]    Initializes the browser and logs in with standard user credentials.
     Set Log Level    level=TRACE
-    # New Browser    browser=chromium    headless=False
-    Open Browser    ${None}    chromium    False
+    New Browser    browser=chromium    headless=True
+    # Open Browser is for debugging purposes
+    # Open Browser    ${None}    chromium    False
+    New Page    ${baseUrl}
     And I Am On The Login Page
     And I Login With Username "standard_user" And Password "secret_sauce"
     Wait For Elements State    css=.shopping_cart_link    stable
