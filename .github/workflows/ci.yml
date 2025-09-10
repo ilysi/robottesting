@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: 
+    - main
+  pull_request:
+    branches: 
+    - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - name: Checkout repository
+    - uses: actions/checkout@v5
+    
+    - name: Install poetry
+      run: pipx install poetry
+    - uses: actions/setup-python@v6
+      with:
+        python-version: '3.11'
+        cache: 'poetry'
+    - run: poetry install
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v5.0.0
+    
+    - name: Install the node dependencies
+    - run: rfbrowser init
+
+    - name: Run Robot Framework tests
+      run: poetry run robot tests/
