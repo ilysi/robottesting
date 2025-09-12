@@ -479,59 +479,74 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "robotcode"
-version = "1.8.0"
+version = "1.9.0"
 description = "Command line interface for RobotCode"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "robotcode-1.8.0-py3-none-any.whl", hash = "sha256:83797890f8ae33cb3b3982602ca4807b0f3a8009f6bc3876f6be737a7ad534d5"},
-    {file = "robotcode-1.8.0.tar.gz", hash = "sha256:bd6914bbe1f2a15fcd315bdde18fa3fdfa19058535b0c798e67d848059205457"},
+    {file = "robotcode-1.9.0-py3-none-any.whl", hash = "sha256:79dcb13d3dffb9b8b16efe2de2da161635f86999d63dc04dfae4662a0eb9747a"},
+    {file = "robotcode-1.9.0.tar.gz", hash = "sha256:2566de1ed2b1efc0ff6722a2cae49ed3590cfd1f42a357a2b602d7c94cfb576a"},
 ]
 
 [package.dependencies]
-robotcode-core = "1.8.0"
-robotcode-plugin = "1.8.0"
-robotcode-robot = "1.8.0"
+robotcode-core = "1.9.0"
+robotcode-plugin = "1.9.0"
+robotcode-robot = "1.9.0"
 
 [package.extras]
-all = ["docutils", "pyyaml (>=5.4)", "rich", "robotcode-analyze (==1.8.0)", "robotcode-debugger (==1.8.0)", "robotcode-language-server (==1.8.0)", "robotcode-repl (==1.8.0)", "robotcode-repl-server (==1.8.0)", "robotcode-runner (==1.8.0)", "robotframework-robocop (>=2.0.0)"]
-analyze = ["robotcode-analyze (==1.8.0)"]
+all = ["docutils", "pyyaml (>=5.4)", "rich", "robotcode-analyze (==1.9.0)", "robotcode-debugger (==1.9.0)", "robotcode-language-server (==1.9.0)", "robotcode-repl (==1.9.0)", "robotcode-repl-server (==1.9.0)", "robotcode-runner (==1.9.0)", "robotframework-robocop (>=2.0.0)"]
+analyze = ["robotcode-analyze (==1.9.0)"]
 colored = ["rich"]
-debugger = ["robotcode-debugger (==1.8.0)"]
-languageserver = ["robotcode-language-server (==1.8.0)"]
+debugger = ["robotcode-debugger (==1.9.0)"]
+languageserver = ["robotcode-language-server (==1.9.0)"]
 lint = ["robotframework-robocop (>=2.0.0)"]
-repl = ["robotcode-repl (==1.8.0)"]
-replserver = ["robotcode-repl-server (==1.8.0)"]
+repl = ["robotcode-repl (==1.9.0)"]
+replserver = ["robotcode-repl-server (==1.9.0)"]
 rest = ["docutils"]
-runner = ["robotcode-runner (==1.8.0)"]
+runner = ["robotcode-runner (==1.9.0)"]
 yaml = ["pyyaml (>=5.4)"]
 
 [[package]]
 name = "robotcode-core"
-version = "1.8.0"
+version = "1.9.0"
 description = "Some core classes for RobotCode"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "robotcode_core-1.8.0-py3-none-any.whl", hash = "sha256:1592828bbf0333848143e97c252ef7e21941ba8fac1f248567dc23617aaefe89"},
-    {file = "robotcode_core-1.8.0.tar.gz", hash = "sha256:ef8980f705b763768dba714fa40a33ee9d666ff4a2e7884c5b338fa7f85d3d7f"},
+    {file = "robotcode_core-1.9.0-py3-none-any.whl", hash = "sha256:c19c697b23d870c42890b82dddda84e7e552d11636208916f03eb025841fffab"},
+    {file = "robotcode_core-1.9.0.tar.gz", hash = "sha256:a626b0292f4f1bea459cf8b7b7a37cbe7c215b3611beaa8fdac69025993a15d2"},
 ]
 
 [package.dependencies]
 typing-extensions = ">=4.4.0"
 
 [[package]]
+name = "robotcode-modifiers"
+version = "1.9.0"
+description = "Some Robot Framework Modifiers for RobotCode"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "robotcode_modifiers-1.9.0-py3-none-any.whl", hash = "sha256:ee3111c64e5931cca02e5c6e76d39f9bc42ececa83fa679244c830deb68897b4"},
+    {file = "robotcode_modifiers-1.9.0.tar.gz", hash = "sha256:88611c3e90db35646c4a06838e1b8278bf6a6b15384f603872edae34563a0f99"},
+]
+
+[package.dependencies]
+robotframework = ">=4.1.0"
+
+[[package]]
 name = "robotcode-plugin"
-version = "1.8.0"
+version = "1.9.0"
 description = "Some classes for RobotCode plugin management"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "robotcode_plugin-1.8.0-py3-none-any.whl", hash = "sha256:2a1ff8f5edaa1bae13434a416fcfccb55900d1b2f765d8300104e6a482abde70"},
-    {file = "robotcode_plugin-1.8.0.tar.gz", hash = "sha256:79a3a4078fb14027b8491d52a4e0508999f553bcba788f7a938c2145e009769e"},
+    {file = "robotcode_plugin-1.9.0-py3-none-any.whl", hash = "sha256:3c7ccd6a5b189ab7efebf9a1425a6cae2f04ed213c841566516c695a66a18dcf"},
+    {file = "robotcode_plugin-1.9.0.tar.gz", hash = "sha256:bc44dd4580aeaa88bce43191e06d59a96373c9fd7ef619bad16763e2711c5df8"},
 ]
 
 [package.dependencies]
@@ -542,19 +557,38 @@ tomli-w = ">=1.0.0"
 
 [[package]]
 name = "robotcode-robot"
-version = "1.8.0"
+version = "1.9.0"
 description = "Support classes for RobotCode for handling Robot Framework projects."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "robotcode_robot-1.8.0-py3-none-any.whl", hash = "sha256:88f790140f959a52bbd06921d792595f210fecf4e8ba95078d9b6519f30a727c"},
-    {file = "robotcode_robot-1.8.0.tar.gz", hash = "sha256:07057ac03ded810967293d641e032dfe3713ee592e0b0de2333dde9f15e71628"},
+    {file = "robotcode_robot-1.9.0-py3-none-any.whl", hash = "sha256:247ea79a2d8e5c1e1e1f1c2cfba74b8fba1c8fc111dfff5e9aed927b7a56b6ff"},
+    {file = "robotcode_robot-1.9.0.tar.gz", hash = "sha256:ef65581e8d4a7eb0b42ae95b08ce85b05465241ed1b7b32067398a50123e419c"},
 ]
 
 [package.dependencies]
 platformdirs = ">=3.2.0,<4.4.0"
-robotcode-core = "1.8.0"
+robotcode-core = "1.9.0"
+robotframework = ">=4.1.0"
+
+[[package]]
+name = "robotcode-runner"
+version = "1.9.0"
+description = "RobotCode runner for Robot Framework"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "robotcode_runner-1.9.0-py3-none-any.whl", hash = "sha256:f6d6488bf76b74fd8b0c04d656f65a34bcd4a3990f67e6265cde9ba339cff4ad"},
+    {file = "robotcode_runner-1.9.0.tar.gz", hash = "sha256:99ef0a1de3df00516907453503c234bf75f38b27419628a99888afe051ee65d7"},
+]
+
+[package.dependencies]
+robotcode = "1.9.0"
+robotcode-modifiers = "1.9.0"
+robotcode-plugin = "1.9.0"
+robotcode-robot = "1.9.0"
 robotframework = ">=4.1.0"
 
 [[package]]
@@ -999,4 +1033,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "1963471fcf8903842bff61e2bec01749f4fc30b885dcfc1c44847a5c5e5a338d"
+content-hash = "0cb11f0988e4c79c9775707c2dad2c236049d1d2bc5b10755cc880f4ea2a075b"
