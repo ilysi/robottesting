@@ -26,8 +26,8 @@ Add Bolt T-Shirt To Cart
     When I Add The Bolt T-Shirt To The Cart
     Then The Item Should Be In The Cart
 
-Workflow Testfall (Warenkorb)
-    Fail    no keywords yet
+# Workflow Testfall (Warenkorb)
+#     Fail    no keywords yet
 
-Komplexe Elemente testen
-    Fail    no keywords yet
+# Komplexe Elemente testen
+#     Fail    no keywords yet
