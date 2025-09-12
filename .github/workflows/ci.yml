@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Ensure Robotcode installed
+        run: poetry run pip list | grep robotcode
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v5.0.0
 
