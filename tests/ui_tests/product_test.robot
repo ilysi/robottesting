@@ -32,8 +32,27 @@ Add Bolt T-Shirt To Cart
     When I Add The Bolt T-Shirt To The Cart
     Then The Item Should Be In The Cart
 
-# Workflow Testfall (Warenkorb)
-#     Fail    no keywords yet
+Workflow Testfall (Warenkorb)
+    [Documentation]    Complete workflow test case from login to checkout and order.
+    Given I Am On The Product Page
+    And I Add The Backpack To The Cart
+    And I Add The Bike Light To The Cart
+    And I Add The Bolt T-Shirt To The Cart
+    And The Item Should Be In The Cart
+    And I Go To The Shopping Cart
+    # Verify items in cart
+    And I Found "3" Items In The Cart
+    # Proceed to checkout
+    And I Go To Checkout
+    # Enter details
+    And Fill In Information
+    # Continue to overview
+    And Click Continue To Step Two
+    # Finish order
+    When Click Finish Order
+    # Verify order completion
+    Then Verify Order Completion
+    # Note: The following steps need to be implemented in the keywords resource file.
 
 # Komplexe Elemente testen
-#     Fail    no keywords yet
+#    Fail    no keywords yet
