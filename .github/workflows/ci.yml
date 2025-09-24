@@ -11,7 +11,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
@@ -31,6 +31,17 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v5.0.0
+
+      - name: Install Appium
+        run: npm install -g appium
+
+      - name: Boot iOS Simulator
+        run: |
+          xcrun simctl boot "iPhone 16 Pro" || true
+          xcrun simctl list devices
+
+      - name: Start Appium server
+        run: nohup appium > appium.log 2>&1 &
 
       - name: Install browser dependencies
         run: poetry run rfbrowser init
