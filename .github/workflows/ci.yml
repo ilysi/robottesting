@@ -35,6 +35,9 @@ jobs:
       - name: Install Appium
         run: npm install -g appium
 
+      - name: Install Appium XCUITest driver
+        run: appium driver install xcuitest
+
       - name: Boot iOS Simulator
         run: |
           xcrun simctl boot "iPhone 16 Pro" || true
