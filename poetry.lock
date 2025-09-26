@@ -761,6 +761,21 @@ files = [
 typing-extensions = ">=4.4.0"
 
 [[package]]
+name = "robotcode-modifiers"
+version = "1.9.0"
+description = "Some Robot Framework Modifiers for RobotCode"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "robotcode_modifiers-1.9.0-py3-none-any.whl", hash = "sha256:ee3111c64e5931cca02e5c6e76d39f9bc42ececa83fa679244c830deb68897b4"},
+    {file = "robotcode_modifiers-1.9.0.tar.gz", hash = "sha256:88611c3e90db35646c4a06838e1b8278bf6a6b15384f603872edae34563a0f99"},
+]
+
+[package.dependencies]
+robotframework = ">=4.1.0"
+
+[[package]]
 name = "robotcode-plugin"
 version = "1.9.0"
 description = "Some classes for RobotCode plugin management"
@@ -793,6 +808,25 @@ files = [
 [package.dependencies]
 platformdirs = ">=3.2.0,<4.4.0"
 robotcode-core = "1.9.0"
+robotframework = ">=4.1.0"
+
+[[package]]
+name = "robotcode-runner"
+version = "1.9.0"
+description = "RobotCode runner for Robot Framework"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "robotcode_runner-1.9.0-py3-none-any.whl", hash = "sha256:f6d6488bf76b74fd8b0c04d656f65a34bcd4a3990f67e6265cde9ba339cff4ad"},
+    {file = "robotcode_runner-1.9.0.tar.gz", hash = "sha256:99ef0a1de3df00516907453503c234bf75f38b27419628a99888afe051ee65d7"},
+]
+
+[package.dependencies]
+robotcode = "1.9.0"
+robotcode-modifiers = "1.9.0"
+robotcode-plugin = "1.9.0"
+robotcode-robot = "1.9.0"
 robotframework = ">=4.1.0"
 
 [[package]]
@@ -1387,4 +1421,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "ba78b022d2b9128e007ccf32bebed6a2251784527a5f7842e3add353fb2a7168"
+content-hash = "392c24c4ac404c15707901929c919faef858f83baef8352afce7c030ea561da1"
