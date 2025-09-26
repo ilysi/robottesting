@@ -1,7 +1,7 @@
 *** Settings ***
-Library         RequestsLibrary
 Library         Collections
 Library         OperatingSystem
+Library         RequestsLibrary
 Library         JSONLibrary
 
 Suite Setup     Setup

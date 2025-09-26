@@ -3,7 +3,6 @@ Documentation       Keywords for product page actions.
 
 Library             Browser
 Resource            ./login_page_keywords.resource
-Resource            ../variables/common_elements.resource
 
 
 *** Keywords ***
