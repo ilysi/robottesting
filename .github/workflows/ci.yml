@@ -7,7 +7,6 @@ on:
   pull_request:
     branches: 
       - main
-  workflow_dispatch:
 
 jobs:
   test:
@@ -17,13 +16,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Install poetry
-        run: pipx install poetry
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
           cache: 'poetry'
 
       - name: Install dependencies
@@ -39,12 +38,23 @@ jobs:
         run: appium driver install xcuitest
 
       - name: Boot iOS Simulator
-        run: |
-          xcrun simctl boot "iPhone 16 Pro" || true
-          xcrun simctl list devices
+        uses: futureware-tech/simulator-action@v4
+        with:
+          model: 'iPhone 16'
 
       - name: Start Appium server
         run: nohup appium > appium.log 2>&1 &
+
+      - name: Wait for Appium server to be ready
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:4723/wd/hub/status | grep -q '"ready":true'; then
+              echo "Appium is ready!"
+              break
+            fi
+            echo "Waiting for Appium to be ready..."
+            sleep 2
+          done
 
       - name: Install browser dependencies
         run: poetry run rfbrowser init
