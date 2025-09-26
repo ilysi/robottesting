@@ -7,6 +7,14 @@ authors = [
 ]
 readme = "README.md"
 requires-python = "^3.11"
+dependencies = [
+    "robotcode>=1.9.0",
+    "robotframework>=7.3.2",
+    "robotframework-browser>=19.7.2",
+    "robotframework-jsonlibrary>=0.5",
+    "robotframework-requests>=0.9.7",
+    "robotframework-appiumlibrary>=3.1"
+]
 
 [tool.poetry]
 package-mode = false
@@ -14,12 +22,3 @@ package-mode = false
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.dependencies]
-robotframework = "^7.3.2"
-robotframework-browser = "^19.7.2"
-robotframework-jsonlibrary = "^0.5"
-robotframework-requests = "^0.9.7"
-robotcode-runner = "^1.9.0"
-robotcode = "^1.9.0"
-robotframework-appiumlibrary = "^3.1"
