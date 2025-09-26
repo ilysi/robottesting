@@ -40,19 +40,9 @@ Workflow Testfall (Warenkorb)
     And I Add The Bolt T-Shirt To The Cart
     And The Item Should Be In The Cart
     And I Go To The Shopping Cart
-    # Verify items in cart
     And I Found "3" Items In The Cart
-    # Proceed to checkout
     And I Go To Checkout
-    # Enter details
     And Fill In Information
-    # Continue to overview
     And Click Continue To Step Two
-    # Finish order
     When Click Finish Order
-    # Verify order completion
     Then Verify Order Completion
-    # Note: The following steps need to be implemented in the keywords resource file.
-
-# Komplexe Elemente testen
-#    Fail    no keywords yet
