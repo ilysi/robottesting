@@ -28,6 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
+
+      - name: Create results directory
+        run: mkdir -p results/api
       
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --output results/api/output.xml \
@@ -66,6 +69,9 @@ jobs:
 
       - name: Install browser dependencies # Required for Browser library
         run: poetry run rfbrowser init
+
+      - name: Create results directory
+        run: mkdir -p results/browser
 
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --output results/browser/output.xml \
@@ -124,6 +130,9 @@ jobs:
             echo "Waiting for Appium to be ready..."
             sleep 2
           done
+
+      - name: Create results directory
+        run: mkdir -p results/mobile
 
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --output results/mobile/output.xml \
