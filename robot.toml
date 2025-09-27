@@ -1,4 +1,4 @@
 # Basic settings
-output-dir = "output"
+output-dir = "results"
 log-level = "INFO"
 languages = ["en"]
