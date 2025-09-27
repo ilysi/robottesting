@@ -10,10 +10,39 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: macos-latest
-
+  api-tests:
+    runs-on: ubuntu-latest
     steps:
+      # run API tests (fast)
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
+          cache: 'poetry'
+
+      - name: Install dependencies
+        run: poetry install
+      
+      - name: Run Robot Framework tests
+        run: poetry run robotcode robot tests/api_tests/
+
+      - name: Upload API test results
+        uses: actions/upload-artifact@v4
+        with:
+          path: results/api
+          name: api-results
+          retention-days: 3
+
+  web-tests:
+    runs-on: ubuntu-latest
+    steps:
+      # run Browser tests with rfbrowser
       - name: Checkout repository
         uses: actions/checkout@v5
 
@@ -32,6 +61,38 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v5.0.0
 
+      - name: Install browser dependencies # Required for Browser library
+        run: poetry run rfbrowser init
+
+      - name: Run Robot Framework tests
+        run: poetry run robotcode robot tests/ui_tests/
+
+      - name: Upload browser test results
+        uses: actions/upload-artifact@v4
+        with:
+          path: results/browser
+          name: browser-results
+          retention-days: 3
+
+  mobile-tests:
+    runs-on: macos-latest
+    steps:
+      # run Appium + iOS Simulator tests
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
+          cache: 'poetry'
+
+      - name: Install dependencies
+        run: poetry install
+
       - name: Install Appium
         run: npm install -g appium
 
@@ -41,15 +102,16 @@ jobs:
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
         with:
-          model: 'iPhone 16'
+          model: 'iPhone 16 Pro'
+          os: 'iOS 18.6'
 
       - name: Start Appium server
-        run: nohup appium > appium.log 2>&1 &
+        run: nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
 
       - name: Wait for Appium server to be ready
         run: |
           for i in {1..30}; do
-            if curl -s http://localhost:4723/wd/hub/status | grep -q '"ready":true'; then
+            if curl -s http://localhost:4723/status | grep -q '"ready":true'; then
               echo "Appium is ready!"
               break
             fi
@@ -57,15 +119,59 @@ jobs:
             sleep 2
           done
 
-      - name: Install browser dependencies
-        run: poetry run rfbrowser init
-
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot tests/
+        run: poetry run robotcode robot tests/mobile_tests/
 
       - name: Upload Robot Framework results
         uses: actions/upload-artifact@v4
         with:
-          path: output
-          name: test-results
+          path: results/mobile
+          name: mobile-results
           retention-days: 3
+
+  combine-reports:
+    runs-on: ubuntu-latest
+    needs: [api-tests, web-tests, mobile-tests]
+    steps:
+      - name: Download API results
+        uses: actions/download-artifact@v4
+        with:
+          name: api-results
+          path: results/api
+
+      - name: Download Web results
+        uses: actions/download-artifact@v4
+        with:
+          name: browser-results
+          path: results/browser
+
+      - name: Download Mobile results
+        uses: actions/download-artifact@v4
+        with:
+          name: mobile-results
+          path: results/mobile
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
+          cache: 'poetry'
+
+      - name: Install Robot Framework
+        run: pip install robotframework
+
+      - name: Merge reports with rebot
+        run: |
+          rebot --merge \
+            --name "Combined Test Report" \
+            --output results/output.xml \
+            results/api/output.xml \
+            results/web/output.xml \
+            results/mobile/output.xml
+
+      - name: Upload Combined Report
+        uses: actions/upload-artifact@v4
+        with:
+          path: results
+          name: combined-test-report
+          retention-days: 7

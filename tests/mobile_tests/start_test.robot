@@ -11,13 +11,14 @@ ${AUTOMATION_NAME}      XCUITest
 ${DEVICE_NAME}          iPhone 16 Pro
 ${PLATFORM_VERSION}     18.6
 ${APP}                  Safari
+${URL_ROBOTFRAMEWORK}   https://robotframework.org
 
 
 *** Test Cases ***
 First Test Open Safari And Search Robotframework
     [Documentation]    Open Safari and search for robotframework
     Open Safari
-    Go To Url    https://robotframework.org
+    Go To Url Of Robotframework
     Sleep    5s
 
 
@@ -30,3 +31,7 @@ Open Safari
     ...    deviceName=${DEVICE_NAME}
     ...    platformVersion=${PLATFORM_VERSION}
     ...    browserName=${APP}
+
+Go To Url Of Robotframework
+    [Documentation]    Navigates to the specified URL in the mobile browser.
+    Go To Url    ${URL_ROBOTFRAMEWORK}
