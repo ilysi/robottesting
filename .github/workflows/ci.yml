@@ -28,15 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
-
-      - name: Create results directory
-        run: mkdir -p results/api
       
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot --output results/api/output.xml \
-                                        --log results/api/log.html \
-                                        --report results/api/report.html \
-                                        tests/api_tests/
+        run: poetry run robotcode robot --outputdir "results/api" tests/api_tests
 
       - name: Upload API test results
         uses: actions/upload-artifact@v4
@@ -74,10 +68,7 @@ jobs:
         run: mkdir -p results/browser
 
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot --output results/browser/output.xml \
-                                        --log results/browser/log.html \
-                                        --report results/browser/report.html \
-                                        tests/ui_tests/
+        run: poetry run robotcode robot --outputdir "results/browser"  tests/ui_tests
 
       - name: Upload browser test results
         uses: actions/upload-artifact@v4
@@ -131,14 +122,8 @@ jobs:
             sleep 2
           done
 
-      - name: Create results directory
-        run: mkdir -p results/mobile
-
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot --output results/mobile/output.xml \
-                                        --log results/mobile/log.html \
-                                        --report results/mobile/report.html \
-                                        tests/mobile_tests/
+        run: poetry run robotcode robot --outputdir "results/mobile" tests/mobile_tests
 
       - name: Upload Robot Framework results
         uses: actions/upload-artifact@v4
