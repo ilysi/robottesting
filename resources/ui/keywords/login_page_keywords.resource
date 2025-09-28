@@ -43,7 +43,7 @@ I Should See A Locked Out Message
 Initialize Browser And Login
     [Documentation]    Initializes the browser and logs in with standard user credentials.
     Set Log Level    level=TRACE
-    New Browser    browser=webkit    headless=False    slowMo=1s
+    New Browser    browser=webkit    headless=True    slowMo=1s
     New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
     # Open Browser is for debugging purposes
     # Open Browser    ${None}    chromium    False
@@ -55,7 +55,7 @@ Initialize Browser And Login
 Initialize Browser Without Login
     [Documentation]    Initializes the browser without logging in.
     Set Log Level    level=TRACE
-    New Browser    browser=webkit    headless=False    slowMo=1s
+    New Browser    browser=webkit    headless=True    slowMo=1s
     New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
     # Open Browser is for debugging purposes
     Open Browser    url=${BASEURL}    browser=webkit    headless=False
