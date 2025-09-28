@@ -3,7 +3,7 @@ Documentation       UI tests for the login functionality.
 
 Resource            ../../resources/ui/keywords/login_page_keywords.resource
 
-Test Setup          New Browser    browser=chromium    headless=False
+Test Setup          Initialize Browser Without Login
 
 
 *** Test Cases ***
@@ -22,7 +22,7 @@ Login to Homepage
 Login With False Password
     [Documentation]    Attempts to log in with a valid username but incorrect password and checks for an error message.
     Given I Am On The Login Page
-    When I Login With Username "${USERNAME}" And Password "${PASSWORD}"
+    When I Login With Username "${FALSE_USER}" And Password "${PASSWORD}"
     Then I Should See An Error Message
 
 Login With Locked Out User

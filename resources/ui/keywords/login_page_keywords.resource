@@ -9,7 +9,7 @@ Resource            ../variables/common_elements.resource
 *** Keywords ***
 I Am On The Login Page
     [Documentation]    Navigates to the login page using the base URL.
-    New Page    ${baseUrl}
+    Get Url    ==    ${BASEURL}/
 
 The Title Should Be Swag Labs
     [Documentation]    Verifies that the page title is 'Swag Labs'.
@@ -43,7 +43,7 @@ I Should See A Locked Out Message
 Initialize Browser And Login
     [Documentation]    Initializes the browser and logs in with standard user credentials.
     Set Log Level    level=TRACE
-    New Browser    browser=webkit    headless=False    slowMo=2s
+    New Browser    browser=webkit    headless=False    slowMo=1s
     New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
     # Open Browser is for debugging purposes
     # Open Browser    ${None}    chromium    False
@@ -51,3 +51,11 @@ Initialize Browser And Login
     And I Am On The Login Page
     And I Login With Username "${USERNAME}" And Password "${PASSWORD}"
     Wait For Elements State    css=.shopping_cart_link    stable
+
+Initialize Browser Without Login
+    [Documentation]    Initializes the browser without logging in.
+    Set Log Level    level=TRACE
+    New Browser    browser=webkit    headless=False    slowMo=1s
+    New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
+    # Open Browser is for debugging purposes
+    Open Browser    url=${BASEURL}    browser=webkit    headless=False

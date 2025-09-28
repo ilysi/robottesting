@@ -8,7 +8,7 @@ Resource            ./login_page_keywords.resource
 *** Keywords ***
 I Am On The Product Page
     [Documentation]    Navigates to the product page and verifies the URL.
-    Get Url    ==    ${baseUrl}/inventory.html
+    Get Url    ==    ${BASEURL}/inventory.html
 
 # The Title Should Be Swag Labs
 #    Get Title    ==    Swag Labs
