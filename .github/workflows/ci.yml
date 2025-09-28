@@ -94,15 +94,14 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
-
-      - name: Install Appium
-        run: npm install -g appium
-
-      - name: Install Appium XCUITest driver
-        run: appium driver install xcuitest
-
-      - name: Install Carthage
-        run: brew install carthage # wird benötigt, um WebDriverAgent (WDA) zu bauen
+      
+      # ---- iOS spezifisch ----
+      - name: Install Node + Appium
+        run: |
+          brew install node
+          npm install -g appium
+          appium driver install xcuitest
+          brew install carthage # WDA benötigt Carthage
 
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
