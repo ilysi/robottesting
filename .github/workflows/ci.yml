@@ -33,6 +33,7 @@ jobs:
         run: poetry run robotcode robot --outputdir "results/api" tests/api_tests
 
       - name: Upload API test results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           path: results/api
@@ -68,6 +69,7 @@ jobs:
         run: poetry run robotcode robot --outputdir "results/browser"  tests/browser_tests
 
       - name: Upload browser test results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           path: results/browser
@@ -99,6 +101,9 @@ jobs:
       - name: Install Appium XCUITest driver
         run: appium driver install xcuitest
 
+      - name: Install Carthage
+        run: brew install carthage # wird benötigt, um WebDriverAgent (WDA) zu bauen
+
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
         with:
@@ -123,6 +128,7 @@ jobs:
         run: poetry run robotcode robot --outputdir "results/mobile" tests/mobile_tests
 
       - name: Upload Robot Framework results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           path: results/mobile
@@ -165,6 +171,7 @@ jobs:
           rebot --merge --name "Combined Test Report" --output results/output.xml results/api/output.xml results/web/output.xml results/mobile/output.xml
 
       - name: Upload Combined Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           path: results
