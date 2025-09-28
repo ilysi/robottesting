@@ -162,12 +162,7 @@ jobs:
 
       - name: Merge reports with rebot
         run: |
-          rebot --merge \
-            --name "Combined Test Report" \
-            --output results/output.xml \
-            results/api/output.xml \
-            results/web/output.xml \
-            results/mobile/output.xml
+          rebot --merge --name "Combined Test Report" --output results/output.xml results/api/output.xml results/web/output.xml results/mobile/output.xml
 
       - name: Upload Combined Report
         uses: actions/upload-artifact@v4
