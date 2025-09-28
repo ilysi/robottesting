@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation       UI tests for the product functionality.
 
-Resource            ../../resources/ui/keywords/product_page_keywords.resource
-Resource            ../../resources/ui/keywords/shopping_cart_page_keywords.resource
+Resource            ../../resources/browser/keywords/product_page_keywords.resource
+Resource            ../../resources/browser/keywords/shopping_cart_page_keywords.resource
 
 Test Setup          Initialize Browser And Login
 

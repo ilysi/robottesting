@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       UI tests for the login functionality.
 
-Resource            ../../resources/ui/keywords/login_page_keywords.resource
+Resource            ../../resources/browser/keywords/login_page_keywords.resource
 
 Test Setup          Initialize Browser Without Login
 
