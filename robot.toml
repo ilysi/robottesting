@@ -2,3 +2,14 @@
 output-dir = "results"
 log-level = "INFO"
 languages = ["en"]
+
+# Global variables
+[variables]
+BROWSER = "chromium"
+TIMEOUT = "2s"
+BASEURL = "https://www.saucedemo.com"
+USERNAME = "standard_user"
+FALSE_USER = "false_user"
+PASSWORD = "secret_sauce"
+LOCKEDUSER = "locked_out_user"
+NUMBER_OF_ITEMS = "3"
