@@ -103,7 +103,7 @@ jobs:
         uses: futureware-tech/simulator-action@v4
         with:
           model: 'iPhone 16 Pro'
-          os: 'iOS 18.6'
+          wait_for_boot: 'true'
 
       - name: Start Appium server
         run: nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
