@@ -2,7 +2,6 @@
 Documentation       Keywords for login actions.
 
 Library             Browser
-Resource            ../variables/common_variables.resource
 Resource            ../variables/common_elements.resource
 
 
@@ -43,11 +42,11 @@ I Should See A Locked Out Message
 Initialize Browser And Login
     [Documentation]    Initializes the browser and logs in with standard user credentials.
     Set Log Level    level=TRACE
-    New Browser    browser=chromium    headless=True
+    New Browser    browser=${BROWSER}    headless=True
     New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
     # Open Browser is for debugging purposes
     # Open Browser    ${None}    chromium    False
-    New Page    ${baseUrl}
+    New Page    ${BASEURL}
     And I Am On The Login Page
     And I Login With Username "${USERNAME}" And Password "${PASSWORD}"
     Wait For Elements State    css=.shopping_cart_link    stable
@@ -57,6 +56,6 @@ Initialize Browser Without Login
     Set Log Level    level=TRACE
     New Browser    browser=chromium    headless=True
     New Context    recordVideo={"dir": "videos", "size": {"width": 800, "height": 600}}
-    New Page    ${baseUrl}
+    New Page    ${BASEURL}
     # Open Browser is for debugging purposes
     # Open Browser    url=${BASEURL}    browser=chromium    headless=False

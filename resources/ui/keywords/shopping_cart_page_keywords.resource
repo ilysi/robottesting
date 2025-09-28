@@ -2,7 +2,6 @@
 Documentation       Keywords for shopping cart page actions.
 
 Library             Browser
-Resource            ../variables/common_variables.resource
 Resource            ../variables/common_elements.resource
 
 
@@ -14,7 +13,7 @@ I Found "${NUMBER_OF_ITEMS}" Items In The Cart
 I Go To Checkout
     [Documentation]    Clicks the checkout button on the shopping cart page.
     Click    ${CHECKOUT_BUTTON}
-    Get Url    ==    ${baseUrl}/checkout-step-one.html
+    Get Url    ==    ${BASEURL}/checkout-step-one.html
 
 Fill In Information
     [Documentation]    Fills in the checkout information form step one.
@@ -25,12 +24,12 @@ Fill In Information
 Click Continue To Step Two
     [Documentation]    Clicks the continue button on the checkout information page.
     Click    ${CONTINUE_BUTTON}
-    Get Url    ==    ${baseUrl}/checkout-step-two.html
+    Get Url    ==    ${BASEURL}/checkout-step-two.html
 
 Click Finish Order
     [Documentation]    Clicks the finish button on the checkout overview page.
     Click    ${FINISH_BUTTON}
-    Get Url    ==    ${baseUrl}/checkout-complete.html
+    Get Url    ==    ${BASEURL}/checkout-complete.html
 
 Verify Order Completion
     [Documentation]    Verifies that the order completion page is displayed.

@@ -36,4 +36,4 @@ The Item Should Be In The Cart
 I Go To The Shopping Cart
     [Documentation]    Navigates to the shopping cart page.
     Click    ${SHOPPING_CART_LINK}
-    Get Url    ==    ${baseUrl}/cart.html
+    Get Url    ==    ${BASEURL}/cart.html
