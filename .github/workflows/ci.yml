@@ -37,7 +37,7 @@ jobs:
         with:
           path: results/api
           name: api-results
-          retention-days: 3
+          retention-days: 7
 
   web-tests:
     runs-on: ubuntu-latest
@@ -65,14 +65,14 @@ jobs:
         run: poetry run rfbrowser init
 
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot --outputdir "results/browser"  tests/ui_tests
+        run: poetry run robotcode robot --outputdir "results/browser"  tests/browser_tests
 
       - name: Upload browser test results
         uses: actions/upload-artifact@v4
         with:
           path: results/browser
           name: browser-results
-          retention-days: 3
+          retention-days: 7
 
   mobile-tests:
     runs-on: macos-latest
@@ -127,7 +127,7 @@ jobs:
         with:
           path: results/mobile
           name: mobile-results
-          retention-days: 3
+          retention-days: 7
 
   combine-reports:
     runs-on: ubuntu-latest
