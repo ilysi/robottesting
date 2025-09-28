@@ -3,7 +3,7 @@ Documentation       UI tests for the login functionality.
 
 Resource            ../../resources/ui/keywords/login_page_keywords.resource
 
-Test Setup          New Browser    browser=chromium    headless=True
+Test Setup          New Browser    browser=chromium    headless=False
 
 
 *** Test Cases ***
