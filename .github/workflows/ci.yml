@@ -94,6 +94,9 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
       
       # ---- iOS spezifisch ----
       - name: Install Node + Appium
@@ -125,6 +128,13 @@ jobs:
 
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --outputdir "results/mobile" tests/mobile_tests
+
+      - name: Upload Appium Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log
+          path: appium.log
 
       - name: Upload Robot Framework results
         if: always()
