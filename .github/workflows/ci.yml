@@ -64,11 +64,8 @@ jobs:
       - name: Install browser dependencies # Required for Browser library
         run: poetry run rfbrowser init
 
-      - name: Create results directory
-        run: mkdir -p results/browser
-
       - name: Run Robot Framework tests
-        run: poetry run robotcode robot --outputdir "results/browser"  tests/ui_tests
+        run: poetry run robotcode robot --variable HEADLESS:True --outputdir "results/browser"  tests/ui_tests
 
       - name: Upload browser test results
         uses: actions/upload-artifact@v4
