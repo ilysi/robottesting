@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Mobile capabilities for Safari on iOS
 
+
 *** Variables ***
 &{SAFARI_CAPABILITIES}    platformName=iOS
 ...    automationName=XCUITest
