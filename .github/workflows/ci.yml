@@ -104,7 +104,6 @@ jobs:
           brew install node
           npm install -g appium
           appium driver install xcuitest
-          brew install carthage # WDA benötigt Carthage
 
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
@@ -183,6 +182,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          path: results
+          path: results/
           name: combined-test-report
           retention-days: 7
