@@ -1,12 +1,7 @@
 *** Settings ***
 Documentation       Mobile test to open Safari and search for Robot Framework.
 Library             AppiumLibrary
-Resource            ../../resources/mobile/capabilities.resource
-
-
-*** Variables ***
-${REMOTE_URL}           http://127.0.0.1:4723
-${URL_ROBOTFRAMEWORK}   https://robotframework.org
+Resource            ../../resources/mobile/keywords/common_keywords.resource
 
 
 *** Test Cases ***
@@ -16,12 +11,9 @@ First Test Open Safari And Search Robotframework
     Go To Url Of Robotframework
     Sleep    5s
 
-
-*** Keywords ***
-Open Safari
-    [Documentation]    Opens Safari on an iOS device using Appium.
-    Open Application    ${REMOTE_URL}    alias=safari    &{SAFARI_CAPABILITIES}
-
-Go To Url Of Robotframework
-    [Documentation]    Navigates to the specified URL in the mobile browser.
-    Go To Url    ${URL_ROBOTFRAMEWORK}
+Open Google And Search For Appium
+    [Documentation]    Open Google and search for appium
+    Open Safari
+    Go To Url Of Google
+    Search For Appium In Safari
+    Sleep    5s
