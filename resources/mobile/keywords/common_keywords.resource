@@ -18,20 +18,6 @@ Go To Url Of Robotframework
     [Documentation]    Navigates to the specified URL in the mobile browser.
     Go To Url    ${URL_ROBOTFRAMEWORK}
 
-Go To Url Of Google
-    [Documentation]    Navigates to the specified URL in the mobile browser.
-    Go To Url    https://www.google.com
-    Wait Until Element Is Visible    ${SAFARI_SEARCH_FIELD}    10s
-
-Search For Appium In Safari
-    [Documentation]    Searches for "appium" in Safari and clicks the Wikipedia link.
-    Click Element    ${SAFARI_SEARCH_FIELD}
-    Input Text    ${SAFARI_SEARCH_FIELD}    appium
-    ${context}    AppiumLibrary.Get Current Context
-    Log To Console    Current context: ${context}
-    Scroll Element Into View    ${SAFARI_SEARCH_RESULT}
-    Click Element    ${SAFARI_SEARCH_RESULT}
-
 # Calculator app keywords
 
 Open Calculator App
@@ -57,18 +43,22 @@ Open Reminder App
 Add Reminder Item
     [Documentation]    Adds a new reminder item with the specified text.
     [Arguments]    ${item_text}
-    Click Element    accessibility_id=Neue Erinnerung
-    Input Text    accessibility_id=Quick Entry Title Field    ${item_text}
-    Input Text    accessibility_id=Notes text view    Erinnere dich, sonst vergisst du!
-    Click Element    accessibility_id=Details
-    Click Element    xpath=//XCUIElementTypeSwitch[@name="Datum"]
-    Click Element    accessibility_id=2
-    Click Element    xpath=//XCUIElementTypeCell[@name="Priorität"]/XCUIElementTypeOther[1]
-    Click Element    accessibility_id=Niedrig
-    Click Element    accessibility_id=Hinzufügen
+    Click Element    xpath=//XCUIElementTypeButton[@name="Neue Erinnerung"]
+    # Wait Until Element Is Visible    xpath=//XCUIElementTypeTextField[@label="Titel"]    10s
+    # Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
+    Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
+    # Wait Until Element Is Visible    xpath=//XCUIElementTypeTextField[@label="Notizen"]    10s
+    # Input Text    xpath=//XCUIElementTypeTextField[@label="Notizen"]    Erinnere dich, sonst vergisst du!
+    Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Notizen"]    Erinnere dich, sonst vergisst du!
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeStaticText[@name="Details"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeSwitch[@name="Datum"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeStaticText[@name="1"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeStaticText[@name="Priorität"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Niedrig"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Hinzufügen"]
 
 Verify Reminder Item Exists In Planned Items
     [Documentation]    Verifies that a reminder item with the specified text exists.
     [Arguments]    ${item_text}
-    Click Element    xpath=//XCUIElementTypeButton[contains(@name, 'Geplant')]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[contains(@name, 'Geplant')]
     Page Should Contain Element    xpath=//XCUIElementTypeTextField[@name="Titel" and @value="${item_text}"]
