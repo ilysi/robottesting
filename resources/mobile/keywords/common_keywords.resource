@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation       Common keywords for mobile tests.
+Library             DateTime
 Library             AppiumLibrary
 Resource            ../variables/common_elements.resource
 Resource            ../variables/common_variables.resource
@@ -39,16 +40,22 @@ Get Calculator Result
 Open Reminder App
     [Documentation]    Opens the Reminder app on iOS using Appium.
     Open Application    ${REMOTE_URL}    alias=reminder    &{REMINDER_CAPABILITIES}
+    ${context}    Get Current Context
+    Log To Console    Current context: ${context}
+    # Handle initial pop-ups if they appear
+    ${welcome_visible}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//XCUIElementTypeStaticText[@name="Willkommen bei „Erinnerungen“]    3s
+    IF    '${welcome_visible}' == 'True'
+        Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Fortfahren"]
+        Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Später"]
+    END
 
 Add Reminder Item
     [Documentation]    Adds a new reminder item with the specified text.
     [Arguments]    ${item_text}
     Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Neue Erinnerung"]
-    # Wait Until Element Is Visible    xpath=//XCUIElementTypeTextField[@label="Titel"]    10s
-    # Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
-    Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
-    # Wait Until Element Is Visible    xpath=//XCUIElementTypeTextField[@label="Notizen"]    10s
-    # Input Text    xpath=//XCUIElementTypeTextField[@label="Notizen"]    Erinnere dich, sonst vergisst du!
+    ${timestamp}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S
+    VAR    ${REMINDER_TEXT}    new ${item_text} ${timestamp}    scope=TEST
+    Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${REMINDER_TEXT}
     Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Notizen"]    Erinnere dich, sonst vergisst du!
     Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeStaticText[@name="Details"]
     Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeSwitch[@name="Datum"]
@@ -59,6 +66,9 @@ Add Reminder Item
 
 Verify Reminder Item Exists In Planned Items
     [Documentation]    Verifies that a reminder item with the specified text exists.
-    [Arguments]    ${item_text}
     Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[contains(@name, 'Geplant')]
-    Page Should Contain Element    xpath=//XCUIElementTypeTextField[@name="Titel" and @value="${item_text}"]
+    Page Should Contain Element    xpath=//XCUIElementTypeTextField[@name="Titel" and @value="${REMINDER_TEXT}"]
+
+Close App
+    [Documentation]    Closes the currently opened mobile application.
+    Close Application
