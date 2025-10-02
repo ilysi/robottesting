@@ -7,7 +7,7 @@ Resource            ../../resources/mobile/keywords/common_keywords.resource
 *** Test Cases ***
 Launch Calculator And Verify UI
     [Documentation]    Launches Calculator app and checks if result display is visible.
-    [Tags]    robot:exclude
+    [Tags]    robot:skip
     Open Calculator App
     Wait Until Element Is Visible    accessibility_id=Result    10s
     Element Should Be Visible    accessibility_id=Result
@@ -15,7 +15,7 @@ Launch Calculator And Verify UI
 
 Perform Simple Calculation
     [Documentation]    Performs 2 + 3 and verifies the result.
-    [Tags]    robot:exclude
+    [Tags]    robot:skip
     Open Calculator App
     Tap Calculator Button    2
     Tap Calculator Button    +
@@ -28,7 +28,7 @@ Perform Simple Calculation
 Handle Alert In App
     [Documentation]    Tests navigation and alert handling
     ...    (simulate by triggering an action that might show an alert; adjust for your app).
-    [Tags]    robot:exclude
+    [Tags]    robot:skip
     Open Calculator App
     # Example: If your app has a menu or action that triggers an alert
     Tap Calculator Button    AC  # Clear, or replace with app-specific action

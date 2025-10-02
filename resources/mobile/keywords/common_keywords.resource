@@ -43,7 +43,7 @@ Open Reminder App
 Add Reminder Item
     [Documentation]    Adds a new reminder item with the specified text.
     [Arguments]    ${item_text}
-    Click Element    xpath=//XCUIElementTypeButton[@name="Neue Erinnerung"]
+    Wait Until Keyword Succeeds    10x    1s    Click Element    xpath=//XCUIElementTypeButton[@name="Neue Erinnerung"]
     # Wait Until Element Is Visible    xpath=//XCUIElementTypeTextField[@label="Titel"]    10s
     # Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
     Wait Until Keyword Succeeds    10x    1s    Input Text    xpath=//XCUIElementTypeTextField[@label="Titel"]    ${item_text}
