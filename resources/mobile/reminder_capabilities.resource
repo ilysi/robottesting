@@ -8,7 +8,7 @@ Documentation    Mobile capabilities for Reminder App on iOS
 ...    appium:deviceName=iPhone 16 Pro
 ...    appium:platformVersion=18.6
 ...    appium:bundleId=com.apple.reminders
-# ...    appium:noReset=${TRUE}
+...    appium:noReset=${False}
 ...    appium:wdaLaunchTimeout=300000
 ...    appium:wdaConnectionTimeout=300000
 ...    appium:newCommandTimeout=300

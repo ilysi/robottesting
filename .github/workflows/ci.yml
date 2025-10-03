@@ -110,7 +110,9 @@ jobs:
         with:
           model: 'iPhone 16 Pro'
           os_version: '18.6'
+          erase_before_boot: 'false'
           wait_for_boot: 'true'
+          shutdown_after_job: 'true'
 
       - name: Wait for Simulator to be fully booted
         run: |

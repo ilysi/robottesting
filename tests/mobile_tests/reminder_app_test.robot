@@ -1,13 +1,14 @@
 *** Settings ***
 Documentation       POC mobile tests for native iOS app (Calculator demo).
 Library             AppiumLibrary
-Resource            ../../resources/mobile/keywords/common_keywords.resource
+Resource            ../../resources/mobile/keywords/reminder_keywords.resource
+
+Test Setup    Open Reminder App And Handle Popups
+Test Teardown    Close App After Test Execution
 
 
 *** Test Cases ***
 Create New Reminder And Verify
     [Documentation]    Creates a new reminder and verifies its presence.
-    Open Reminder App
     Add Reminder Item    Groceries
     Verify Reminder Item Exists In Planned Items
-    Close App
