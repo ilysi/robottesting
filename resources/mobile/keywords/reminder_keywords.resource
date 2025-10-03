@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation       Common keywords for mobile tests.
+
 Library             DateTime
 Library             AppiumLibrary
 Resource            ../variables/common_variables.resource
@@ -25,10 +26,19 @@ Open Reminder App
 Handle Initial Pop-Ups If They Appear
     [Documentation]    Handles system alerts and in-app onboarding pop-ups in Reminders app.
     # Handle Reminders welcome screen (German localization)
-    ${welcome_visible}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//XCUIElementTypeStaticText[@name="Willkommen bei „Erinnerungen“"]    1s
+    ${welcome_visible}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    xpath=//XCUIElementTypeStaticText[@name="Willkommen bei „Erinnerungen“"]
+    ...    10s
     IF    ${welcome_visible}
         Run Keyword And Ignore Error    Click Element    xpath=//XCUIElementTypeButton[@name="Fortfahren"]
-        Run Keyword And Ignore Error    Click Element    xpath=//XCUIElementTypeButton[@name="Später"]
+        ${sync_visible}    Run Keyword And Return Status
+        ...    Wait Until Element Is Visible
+        ...    xpath=//XCUIElementTypeButton[@name="Später"]
+        ...    10s
+        IF    ${sync_visible}
+            Run Keyword And Ignore Error    Click Element    xpath=//XCUIElementTypeButton[@name="Später"]
+        END
     END
 
 Close App After Test Execution
@@ -70,10 +80,12 @@ Set Reminder Date
     Click On Visible Element    xpath=//XCUIElementTypeStaticText[@name="${day}"]
 
 Set Reminder Priority
+    [Documentation]    Sets the priority for the new reminder item to low.
     Click On Visible Element    xpath=//XCUIElementTypeStaticText[@name="Priorität"]
     Click On Visible Element    xpath=//XCUIElementTypeButton[@name="Niedrig"]
 
 Save Reminder
+    [Documentation]    Saves the new reminder item.
     Click On Visible Element    xpath=//XCUIElementTypeButton[@name="Hinzufügen"]
 
 Verify Reminder Item Exists In Planned Items

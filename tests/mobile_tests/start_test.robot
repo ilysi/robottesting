@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation       Mobile test to open Safari and search for Robot Framework.
+
 Library             AppiumLibrary
-Resource            ../../resources/mobile/keywords/common_keywords.resource
+Resource            ../../resources/mobile/keywords/safari_keywords.resource
 
 
 *** Test Cases ***

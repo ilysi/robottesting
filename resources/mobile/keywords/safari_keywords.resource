@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation       Common keywords for mobile tests.
+
 Library             DateTime
 Library             AppiumLibrary
 Resource            ../variables/mobile_safari_elements.resource
