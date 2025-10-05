@@ -14,6 +14,7 @@ Open Reminder App And Handle Popups
     [Documentation]    Opens the Reminder app and handles any initial pop-ups if they appear.
     Open Reminder App
     Start Video Recording
+    Click Alert Button    Allow
     Handle Initial Pop-Ups If They Appear
 
 Open Reminder App

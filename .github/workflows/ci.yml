@@ -187,15 +187,11 @@ jobs:
         with:
           name: mobile-results
           path: results/mobile
-      
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
-          cache: 'poetry'
+          python-version: '3.13.7'
 
       - name: Install Robot Framework
         run: pip install robotframework
