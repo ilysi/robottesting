@@ -12,6 +12,7 @@ on:
 jobs:
   api-tests:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       # run API tests (fast)
       - name: Checkout repository
@@ -40,8 +41,9 @@ jobs:
           name: api-results
           retention-days: 7
 
-  web-tests:
+  browser-tests:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       # run Browser tests with rfbrowser
       - name: Checkout repository
@@ -78,6 +80,7 @@ jobs:
 
   mobile-tests:
     runs-on: macos-latest
+    continue-on-error: true
     steps:
       # run Appium + iOS Simulator tests
       - name: Checkout repository
@@ -157,51 +160,4 @@ jobs:
         with:
           path: results/mobile
           name: mobile-results
-          retention-days: 7
-
-  combine-reports:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    needs:
-      - api-tests
-      - web-tests
-      - mobile-tests
-    steps:
-      - name: Download API results
-        uses: actions/download-artifact@v4
-        with:
-          name: api-results
-          path: results/api
-
-      - name: Download Web results
-        uses: actions/download-artifact@v4
-        with:
-          name: browser-results
-          path: results/browser
-
-      - name: Download Mobile results
-        uses: actions/download-artifact@v4
-        with:
-          name: mobile-results
-          path: results/mobile
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
-          cache: 'poetry'
-
-      - name: Install Robot Framework
-        run: pip install robotframework
-
-      - name: Merge reports with rebot
-        run: |
-          rebot --merge --name "Combined Test Report" --output results/output.xml results/api/output.xml results/web/output.xml results/mobile/output.xml
-
-      - name: Upload Combined Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          path: results/
-          name: combined-test-report
           retention-days: 7

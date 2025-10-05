@@ -1,10 +1,11 @@
 *** Settings ***
-Documentation       POC mobile tests for native iOS app (Calculator demo).
+Documentation       POC mobile tests for native iOS app (Reminder App).
+
 Library             AppiumLibrary
 Resource            ../../resources/mobile/keywords/reminder_keywords.resource
 
-Test Setup    Open Reminder App And Handle Popups
-Test Teardown    Close App After Test Execution
+Test Setup          Open Reminder App And Handle Popups
+Test Teardown       Close App After Test Execution
 
 
 *** Test Cases ***

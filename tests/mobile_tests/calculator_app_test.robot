@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation       POC mobile tests for native iOS app (Calculator demo).
+
 Library             AppiumLibrary
-Resource            ../../resources/mobile/keywords/common_keywords.resource
+Resource            ../../resources/mobile/keywords/calculator_keywords.resource
 
 
 *** Test Cases ***
@@ -31,8 +32,8 @@ Handle Alert In App
     [Tags]    robot:skip
     Open Calculator App
     # Example: If your app has a menu or action that triggers an alert
-    Tap Calculator Button    AC  # Clear, or replace with app-specific action
+    Tap Calculator Button    AC    # Clear, or replace with app-specific action
     # Assume an alert appears; accept it
     Wait Until Element Is Visible    //XCUIElementTypeAlert    5s
-    Click Element    //XCUIElementTypeButton[@name="OK"]  # Adjust locator
+    Click Element    //XCUIElementTypeButton[@name="OK"]    # Adjust locator
     Close Application
