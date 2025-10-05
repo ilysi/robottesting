@@ -187,6 +187,9 @@ jobs:
         with:
           name: mobile-results
           path: results/mobile
+      
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Set up Python
         uses: actions/setup-python@v6
