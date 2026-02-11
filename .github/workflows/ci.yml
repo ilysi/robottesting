@@ -12,7 +12,6 @@ on:
 jobs:
   api-tests:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       # run API tests (fast)
       - name: Checkout repository
@@ -43,7 +42,6 @@ jobs:
 
   browser-tests:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       # run Browser tests with rfbrowser
       - name: Checkout repository
@@ -80,7 +78,6 @@ jobs:
 
   mobile-tests:
     runs-on: macos-latest
-    continue-on-error: true
     steps:
       # run Appium + iOS Simulator tests
       - name: Checkout repository
