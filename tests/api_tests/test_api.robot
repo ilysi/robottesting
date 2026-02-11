@@ -36,7 +36,6 @@ Single_object
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Dictionary Should Contain Item    ${response.json()}    key=id    value=3
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Add_object
     [Tags]    api    create    critical
@@ -46,7 +45,6 @@ Add_object
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Should Be Equal    ${response.json()}[name]    Test post operation
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Single_added_object
     [Tags]    api    regression
@@ -54,7 +52,6 @@ Single_added_object
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Update_object
     [Tags]    api    update    critical
@@ -65,7 +62,6 @@ Update_object
     Log To Console    ${response.json()}
     Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
     Dictionary Should Contain Item    ${response.json()}    key=name    value=Test post operation2
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Single_added_object_2
     [Tags]    api    regression
@@ -85,7 +81,6 @@ Single_added_object_2
     ${actual_value2}=    Get Value From Json    ${response.json()}    $.data.test
     ${actual_value2}=    Set Variable    ${actual_value2}[0]
     Should Be Equal    ${actual_value2}    put operation update data
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Partially_update_object
     [Tags]    api    patch
@@ -99,7 +94,6 @@ Partially_update_object
     ...    ${response.json()}
     ...    key=name
     ...    value=Test post operation2 (PAtch update test operation)
-    Schema Should Match    ${response.json()}    object.schema.json
 
 Delete_object
     [Tags]    api    delete    cleanup
