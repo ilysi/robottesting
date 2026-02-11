@@ -21,9 +21,9 @@ Login to Homepage
     When I Login With Username "${USERNAME}" And Password "${PASSWORD}"
     Then I Should See The Homepage
 
-Login With False Password
+Login With False Username
     [Tags]    browser    negative    login
-    [Documentation]    Attempts to log in with a valid username but incorrect password and checks for an error message.
+    [Documentation]    Attempts to log in with an invalid username and valid password and checks for an error message.
     Given I Am On The Login Page
     When I Login With Username "${FALSE_USER}" And Password "${PASSWORD}"
     Then I Should See An Error Message
