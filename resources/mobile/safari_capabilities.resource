@@ -5,8 +5,8 @@ Documentation       Mobile capabilities for Safari on iOS
 *** Variables ***
 &{SAFARI_CAPABILITIES}      platformName=iOS
 ...                         appium:automationName=XCUITest
-...                         appium:deviceName=iPhone 16
-...                         appium:platformVersion=18.6
+...                         appium:deviceName=iPhone 17 Pro
+...                         appium:platformVersion=26.2
 ...                         browserName=Safari
 ...                         appium:noReset=${False}
 ...                         appium:fullReset=${False}

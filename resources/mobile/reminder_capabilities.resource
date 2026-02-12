@@ -5,8 +5,8 @@ Documentation       Mobile capabilities for Reminder App on iOS
 *** Variables ***
 &{REMINDER_CAPABILITIES}    platformName=iOS
 ...                         appium:automationName=XCUITest
-...                         appium:deviceName=iPhone 16
-...                         appium:platformVersion=18.6
+...                         appium:deviceName=iPhone 17 Pro
+...                         appium:platformVersion=26.2
 ...                         appium:bundleId=com.apple.reminders
 ...                         appium:noReset=${False}
 ...                         appium:fullReset=${False}
