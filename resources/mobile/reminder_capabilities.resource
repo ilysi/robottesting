@@ -15,4 +15,4 @@ Documentation       Mobile capabilities for Reminder App on iOS
 ...                         appium:locale=de_DE
 ...                         appium:wdaLaunchTimeout=300000
 ...                         appium:wdaConnectionTimeout=300000
-...                         appium:newCommandTimeout=300
+...                         appium:newCommandTimeout=60
