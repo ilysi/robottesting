@@ -5,7 +5,7 @@ Documentation       Mobile capabilities for Calculator on iOS
 *** Variables ***
 &{CALCULATOR_CAPABILITIES}      platformName=iOS
 ...                             appium:automationName=XCUITest
-...                             appium:deviceName=iPhone 16 Pro
+...                             appium:deviceName=iPhone 16
 ...                             appium:platformVersion=18.6
 ...                             appium:bundleId=com.apple.calculator
 ...                             appium:wdaLaunchTimeout=300000
