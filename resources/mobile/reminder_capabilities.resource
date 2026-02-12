@@ -9,10 +9,10 @@ Documentation       Mobile capabilities for Reminder App on iOS
 ...                         appium:platformVersion=26.2
 ...                         appium:bundleId=com.apple.reminders
 ...                         appium:noReset=${False}
-...                         appium:fullReset=${True}
+...                         appium:fullReset=${False}
 ...                         appium:includeSafariInWebviews=${True}
 ...                         appium:language=de
 ...                         appium:locale=de_DE
 ...                         appium:wdaLaunchTimeout=300000
 ...                         appium:wdaConnectionTimeout=300000
-...                         appium:newCommandTimeout=60
+...                         appium:newCommandTimeout=300

@@ -105,11 +105,6 @@ jobs:
           npm install -g appium
           appium driver install xcuitest
 
-      - name: Clean up existing simulators
-        run: |
-          xcrun simctl shutdown all
-          xcrun simctl erase all
-
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
         with:
@@ -117,7 +112,6 @@ jobs:
           os_version: '26.2'
           erase_before_boot: 'true'
           wait_for_boot: 'true'
-          boot_retries: 1
           shutdown_after_job: 'true'
 
       - name: Wait for Simulator to be fully booted

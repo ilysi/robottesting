@@ -9,7 +9,7 @@ Documentation       Mobile capabilities for Safari on iOS
 ...                         appium:platformVersion=26.2
 ...                         browserName=Safar
 ...                         appium:noReset=${False}
-...                         appium:fullReset=${false}
+...                         appium:fullReset=${False}
 ...                         appium:includeSafariInWebviews=${True}
 ...                         appium:language=de
 ...                         appium:locale=de_DE
