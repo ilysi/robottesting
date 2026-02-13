@@ -16,3 +16,4 @@ Documentation       Mobile capabilities for Reminder App on iOS
 ...                         appium:wdaLaunchTimeout=300000
 ...                         appium:wdaConnectionTimeout=300000
 ...                         appium:newCommandTimeout=300
+...                         appium:wdaStartupRetries=2
