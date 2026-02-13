@@ -17,14 +17,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
           cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -38,7 +38,7 @@ jobs:
         with:
           path: results/api
           name: api-results
-          retention-days: 7
+          retention-days: 30
 
   browser-tests:
     runs-on: ubuntu-latest
@@ -47,14 +47,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
           cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -74,7 +74,7 @@ jobs:
         with:
           path: results/browser
           name: browser-results
-          retention-days: 7
+          retention-days: 30
 
   mobile-tests:
     runs-on: macos-latest
@@ -83,14 +83,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
           cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -170,4 +170,4 @@ jobs:
         with:
           path: results/mobile
           name: mobile-results
-          retention-days: 7
+          retention-days: 30
