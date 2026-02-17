@@ -10,3 +10,4 @@ First Test Open Safari And Search Robotframework
     [Documentation]    Open Safari and search for robotframework
     Open Safari
     Go To Url Of Robotframework
+    Validate URL Of Robotframework Is Open

@@ -9,10 +9,10 @@ Documentation       Mobile capabilities for Safari on iOS
 ...                         appium:platformVersion=26.2
 ...                         browserName=Safari
 ...                         appium:noReset=${False}
-...                         appium:fullReset=${False}
+...                         appium:fullReset=${True}
 ...                         appium:includeSafariInWebviews=${True}
 ...                         appium:language=de
 ...                         appium:locale=de_DE
 ...                         appium:wdaLaunchTimeout=300000
 ...                         appium:wdaConnectionTimeout=300000
-...                         appium:newCommandTimeout=300
+...                         appium:newCommandTimeout=3600
