@@ -107,49 +107,15 @@ jobs:
         with:
           os: 'iOS'
           model: 'iPhone 17 Pro'
-          os_version: '26.2'
+          os_version: '>=26.2'
           erase_before_boot: 'true'
           wait_for_boot: 'true'
           shutdown_after_job: 'true'
-
-      - name: Wait for Simulator to be fully booted
-        run: | 
-          UDID=$(xcrun simctl list devices | grep 'iPhone 17 Pro' | grep -oE '[A-F0-9-]{36}' | head -1)
-          if [ -z "$UDID" ]; then
-            echo "Error: Could not find iPhone 17 Pro UDID"
-            exit 1
-          fi
-          for i in {1..120}; do
-            BOOTED=$(xcrun simctl list devices | grep "$UDID" | grep -c "(Booted)")
-            if [ "$BOOTED" -eq 1 ]; then
-              echo "Simulator is fully booted!"
-              sleep 5
-              break
-            fi
-            echo "Waiting for simulator to boot... ($i/120)"
-            sleep 2
-          done
 
       - name: Start Appium server
         run: |
           nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
           sleep 10
-
-      - name: Wait for Appium server to be ready
-        run: |
-          for i in {1..90}; do
-            if curl -s http://localhost:4723/status 2>/dev/null | grep -q '"ready":true'; then
-              echo "Appium is ready!"
-              break
-            fi
-            echo "Waiting for Appium to be ready... ($i/90)"
-            sleep 2
-            if [ $i -eq 90 ]; then
-              echo "Error: Appium failed to start"
-              cat appium.log
-              exit 1
-            fi
-          done
 
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --outputdir "results/mobile" tests/mobile_tests
