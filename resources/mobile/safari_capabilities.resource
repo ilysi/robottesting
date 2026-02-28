@@ -16,3 +16,4 @@ Documentation       Mobile capabilities for Safari on iOS
 ...                         appium:wdaLaunchTimeout=300000
 ...                         appium:wdaConnectionTimeout=300000
 ...                         appium:newCommandTimeout=3600
+...                         appium:webviewConnectTimeout=10000
