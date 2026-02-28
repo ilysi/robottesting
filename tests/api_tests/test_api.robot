@@ -3,6 +3,7 @@ Library         Collections
 Library         OperatingSystem
 Library         RequestsLibrary
 Library         JSONLibrary
+Resource        ../../resources/api/keywords/api_validation_keywords.resource
 
 Suite Setup     Setup
 
@@ -17,23 +18,27 @@ ${id_wf}=               ${EMPTY}
 
 *** Test Cases ***
 Get_List_Of_All_Objects
+    [Tags]    api    smoke
     ${response}=    GET On Session    restfulapi    /objects
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
 
 List_of_objects_by_ids
+    [Tags]    api    regression
     ${response}=    GET On Session    restfulapi    /objects    params=id=3&id=5&id=10
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Request Should Be Successful    response=${response}
 
 Single_object
+    [Tags]    api    smoke
     ${response}=    GET On Session    restfulapi    /objects/${id}
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Dictionary Should Contain Item    ${response.json()}    key=id    value=3
 
 Add_object
+    [Tags]    api    create    critical
     ${body}=    Load Json From File    ${BODY_FILE}
 
     ${response}=    POST On Session    restfulapi    /objects    json=${body}
@@ -42,12 +47,14 @@ Add_object
     Should Be Equal    ${response.json()}[name]    Test post operation
 
 Single_added_object
+    [Tags]    api    regression
     ${response}=    GET On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
 
 Update_object
+    [Tags]    api    update    critical
     ${body}=    Load Json From File    ${BODY_FILE_2}
 
     ${response}=    PUT On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5    json=${body}
@@ -57,6 +64,7 @@ Update_object
     Dictionary Should Contain Item    ${response.json()}    key=name    value=Test post operation2
 
 Single_added_object_2
+    [Tags]    api    regression
     ${response}=    GET On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
@@ -75,6 +83,7 @@ Single_added_object_2
     Should Be Equal    ${actual_value2}    put operation update data
 
 Partially_update_object
+    [Tags]    api    patch
     ${body}=    Load Json From File    ${BODY_FILE_PATCH}
 
     ${response}=    PATCH On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5    json=${body}
@@ -87,6 +96,7 @@ Partially_update_object
     ...    value=Test post operation2 (PAtch update test operation)
 
 Delete_object
+    [Tags]    api    delete    cleanup
     ${response}=    DELETE On Session    restfulapi    /objects/${id_wf}
     Status Should Be    expected_status=200
 

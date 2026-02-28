@@ -17,3 +17,9 @@ Open Safari
 Go To Url Of Robotframework
     [Documentation]    Navigates to the specified URL in the mobile browser.
     Go To Url    ${URL_ROBOTFRAMEWORK}
+
+Validate URL Of Robotframework Is Open
+    [Documentation]    Robotframework page is shown
+    ${currentUrl}    Get Window Url
+    Log To Console    ${currentUrl}
+    Should Contain    ${currentUrl}    ${URL_ROBOTFRAMEWORK}

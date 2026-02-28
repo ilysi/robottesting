@@ -12,20 +12,18 @@ on:
 jobs:
   api-tests:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       # run API tests (fast)
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
-          cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -39,24 +37,22 @@ jobs:
         with:
           path: results/api
           name: api-results
-          retention-days: 7
+          retention-days: 30
 
   browser-tests:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       # run Browser tests with rfbrowser
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
-          cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -76,24 +72,22 @@ jobs:
         with:
           path: results/browser
           name: browser-results
-          retention-days: 7
+          retention-days: 30
 
   mobile-tests:
     runs-on: macos-latest
-    continue-on-error: true
     steps:
       # run Appium + iOS Simulator tests
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml' # Read python version from a file pyproject.toml
-          cache: 'poetry'
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
@@ -111,38 +105,17 @@ jobs:
       - name: Boot iOS Simulator
         uses: futureware-tech/simulator-action@v4
         with:
-          model: 'iPhone 16 Pro'
-          os_version: '18.6'
-          erase_before_boot: 'false'
+          os: 'iOS'
+          model: 'iPhone 17 Pro'
+          os_version: '>=26.2'
+          erase_before_boot: 'true'
           wait_for_boot: 'true'
           shutdown_after_job: 'true'
 
-      - name: Wait for Simulator to be fully booted
-        run: |
-          UDID=$(xcrun simctl list devices | grep 'iPhone 16 Pro' | grep -oE '[A-F0-9-]{36}')
-          for i in {1..30}; do
-            BOOTED=$(xcrun simctl list devices | grep "$UDID" | grep -c "(Booted)")
-            if [ "$BOOTED" -eq 1 ]; then
-              echo "Simulator is fully booted!"
-              break
-            fi
-            echo "Waiting for simulator to boot..."
-            sleep 2
-          done
-
       - name: Start Appium server
-        run: nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-
-      - name: Wait for Appium server to be ready
         run: |
-          for i in {1..30}; do
-            if curl -s http://localhost:4723/status | grep -q '"ready":true'; then
-              echo "Appium is ready!"
-              break
-            fi
-            echo "Waiting for Appium to be ready..."
-            sleep 2
-          done
+          nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+          sleep 10
 
       - name: Run Robot Framework tests
         run: poetry run robotcode robot --outputdir "results/mobile" tests/mobile_tests
@@ -160,4 +133,4 @@ jobs:
         with:
           path: results/mobile
           name: mobile-results
-          retention-days: 7
+          retention-days: 30

@@ -6,7 +6,7 @@ authors = [
     {name = "Elias Grinberg", email = "illya.grinberg@gmail.com"}
 ]
 readme = "README.md"
-requires-python = "^3.11"
+requires-python = ">=3.11,<4"
 dependencies = [
     "robotcode>=1.9.0",
     "robotframework>=7.3.2",
@@ -14,9 +14,9 @@ dependencies = [
     "robotframework-jsonlibrary>=0.5",
     "robotframework-requests>=0.9.7",
     "robotframework-appiumlibrary>=3.1",
-    "robotcode-runner (>=1.9.0,<2.0.0)",
-    "robotframework-autorecorder (>=0.1.6,<0.2.0)",
-    "robotframework-screencaplibrary (>=1.6.0,<2.0.0)"
+    "robotcode-runner>=1.9.0",
+    "robotframework-autorecorder>=0.1.6",
+    "robotframework-screencaplibrary>=1.6.0"
 ]
 
 [tool.poetry]
