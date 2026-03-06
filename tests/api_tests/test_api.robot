@@ -45,34 +45,35 @@ Add_object
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
     Should Be Equal    ${response.json()}[name]    Test post operation
+    VAR    ${id_wf}    ${response.json()}[id]    scope=SUITE
 
 Single_added_object
     [Tags]    api    regression
-    ${response}=    GET On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5
+    ${response}=    GET On Session    restfulapi    /objects/${id_wf}
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
-    Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
+    Dictionary Should Contain Item    ${response.json()}    key=id    value=${id_wf}
 
 Update_object
     [Tags]    api    update    critical
     ${body}=    Load Json From File    ${BODY_FILE_2}
 
-    ${response}=    PUT On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5    json=${body}
+    ${response}=    PUT On Session    restfulapi    /objects/${id_wf}    json=${body}
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
-    Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
+    Dictionary Should Contain Item    ${response.json()}    key=id    value=${id_wf}
     Dictionary Should Contain Item    ${response.json()}    key=name    value=Test post operation2
 
 Single_added_object_2
     [Tags]    api    regression
-    ${response}=    GET On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5
+    ${response}=    GET On Session    restfulapi    /objects/${id_wf}
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
 
     # Validation
     ${actual_value2}=    Get Value From Json    ${response.json()}    $.id
     ${actual_value2}=    Set Variable    ${actual_value2}[0]
-    Should Be Equal    ${actual_value2}    ff80818196f2a23f019773b36c4411e5
+    Should Be Equal    ${actual_value2}    ${id_wf}
 
     ${actual_value2}=    Get Value From Json    ${response.json()}    $.name
     ${actual_value2}=    Set Variable    ${actual_value2}[0]
@@ -86,10 +87,10 @@ Partially_update_object
     [Tags]    api    patch
     ${body}=    Load Json From File    ${BODY_FILE_PATCH}
 
-    ${response}=    PATCH On Session    restfulapi    /objects/ff80818196f2a23f019773b36c4411e5    json=${body}
+    ${response}=    PATCH On Session    restfulapi    /objects/${id_wf}    json=${body}
     Status Should Be    expected_status=200
     Log To Console    ${response.json()}
-    Dictionary Should Contain Item    ${response.json()}    key=id    value=ff80818196f2a23f019773b36c4411e5
+    Dictionary Should Contain Item    ${response.json()}    key=id    value=${id_wf}
     Dictionary Should Contain Item
     ...    ${response.json()}
     ...    key=name
